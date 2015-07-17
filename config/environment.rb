@@ -3,7 +3,6 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
 Rails.application.initialize!
-<%= ENV["DB_NAME"] %>
 
 ASClient::Frameworks::Rails::Filter.configure(
   :cas_base_url  => ENV["CAS_BASE_URL"],
@@ -13,5 +12,5 @@ ASClient::Frameworks::Rails::Filter.configure(
   :username_session_key => :cas_user,
   :extra_attributes_session_key => :cas_extra_attributes,
   :enable_single_sign_out => true
-  :service_url => "http://192.168.49.129"
+  :service_url => ENV["SERVICE_URL"]
 )
