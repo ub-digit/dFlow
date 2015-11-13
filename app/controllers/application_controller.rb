@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   before_filter :setup
-
+  before_filter CASClient::Frameworks::Rails::GatewayFilter
+  @current_user = session[:cas_user]
+  
   # Setup global state for response
   def setup
     @response ||= {}

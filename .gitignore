@@ -51,3 +51,4 @@ doc/app/
 
 # Ignore RVM gemset file
 .ruby-gemset
+**/.DS_Store
