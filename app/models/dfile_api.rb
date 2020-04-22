@@ -87,17 +87,17 @@ class DfileApi
     end
   end
 
-  def self.move_file(from_source:, from_file:, to_source:, to_file:)
+  def self.move_file(source_file:, dest_file:)
     response = HTTParty.get("#{host}/move_file", query: {
-      source_file: "#{from_source}:/#{from_file}",
-      dest_file: "#{to_source}:/#{to_file}",
+      source_file: source_file,
+      dest_file: dest_file,
       api_key: api_key
     })
 
     if response.success?
-      return response.body
+      return true
     else
-      raise StandardError, "Couldn't move file #{from_source} #{from_file} to #{to_source} #{to_file}, with message: #{response['error']}"
+      raise StandardError, "Couldn't move file:  #{source_file} to #{dest_file}, with message: #{response['error']}"
     end
   end
 
@@ -302,6 +302,20 @@ class DfileApi
       return true
     else
       raise StandardError, "Couldn't delete job files files in: #{job_path} #{response['error']}"
+    end
+  end
+
+  def self.delete_file(file_path:)
+
+    response = HTTParty.get("#{host}/delete_file", query: {
+      source_file: file_path,
+      api_key: api_key
+    })
+
+    if response.success?
+      return true
+    else
+      raise StandardError, "Couldn't delete file: #{file_path} #{response['error']}"
     end
   end
 
