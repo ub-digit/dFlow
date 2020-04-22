@@ -83,6 +83,8 @@ processes:
   required_params:
     - manual
     - save
+- code: END_OF_JOB
+  state: PROCESS
 - code: IMPORT_PACKAGE_METADATA
   state: PROCESS
 - code: CREATE_METS_PACKAGE
@@ -112,6 +114,11 @@ processes:
   required_params:
     - source_file_path
     - destination_file_path
+- code: MOVE_FILE
+  state: PROCESS
+  required_params:
+    - source_file_path
+    - destination_file_path
 - code: COLLECT_JOB_METADATA
   state: PROCESS
   required_params:
@@ -124,6 +131,14 @@ processes:
     - destination_folder_path
     - to_filetype
     - format
+- code: DELETE_FILE
+  state: PROCESS
+  required_params:
+    - file_path
+- code: DELETE_FOLDER
+  state: PROCESS
+  required_params:
+    - folder_path
 - code: DELETE_JOB_FILES
   state: PROCESS
   required_params:
