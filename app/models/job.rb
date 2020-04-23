@@ -63,7 +63,9 @@ class Job < ActiveRecord::Base
         is_processing: is_processing?,
         status: flow_step ? flow_step.description : "",
         comment: comment,
-        object_info: object_info
+        object_info: object_info,
+        flow_id: flow.id,
+        flow_name: flow.name
       }
     else
       json = super.merge({

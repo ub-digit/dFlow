@@ -11,3 +11,4 @@
 <td>{{#link-to 'node.show' job.treenode_id}}{{job.breadcrumb_string}}{{/link-to}}</td>
 {{/if}}
 <td>{{job.status_string}} {{#if job.is_processing}}<i class="fa fa-spinner" aria-hidden="true"></i>{{/if}}</td>
+<td><span title="{{job.flow_name}}">{{job.flow_id}}</span></td>
