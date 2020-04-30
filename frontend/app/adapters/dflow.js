@@ -8,6 +8,7 @@ export default Ember.Object.extend({
     config: { path: 'api/config'},
     source: { path: 'api/sources'},
     job: { path: 'api/jobs'},
+    file: { path: 'api/files'},
     process: { path: 'api/process', singular: 'job'},
     flow: { path: 'api/flows'},
     thumbnail: {path: 'assets/thumbnail'},

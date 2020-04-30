@@ -22,6 +22,7 @@ export default Ember.Route.extend({
       controller.set('newFlowStep', model.current_flow_step);
     });
     controller.set('model', job_model);
+    controller.set('files', null);
   },
   actions: {
     
