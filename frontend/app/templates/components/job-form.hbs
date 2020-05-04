@@ -154,11 +154,11 @@
 
         <div class="row" style="margin-top:20px;">
           <div class="col-xs-12">
-            <button class="btn btn-primary" {{action 'create' model}}>
-              {{#if model.id}}
-                {{t 'jobs.save'}}
+            <button class="btn btn-primary" disabled={{performingCreate}} {{action 'create' model}}>
+              {{#if performingCreate}}
+                {{t 'jobs.saving'}}
               {{else}}
-                {{t 'jobs.createsubmit'}}
+                {{t 'jobs.save'}}
               {{/if}}
             </button>
             <button class="btn btn-default" {{action 'abort'}}>{{t 'jobs.cancel'}}</button>

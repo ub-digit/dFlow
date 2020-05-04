@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
+  performingCreate: false,
   isNew: Ember.computed('model.id', function(){
     return !this.get('model.id');
   }),
@@ -13,7 +13,8 @@ export default Ember.Component.extend({
   actions: {
     create: function(model) {
       var that = this;
-      this.store.save('job', model).then(
+      that.controller.set('performingCreate', true);
+      that.store.save('job', model).then(
         // callback function for store to use in case of success
         function() {
 					that.triggerAction({action: 'createSuccess'});
@@ -21,6 +22,7 @@ export default Ember.Component.extend({
         // callback function for store to use in case of failure
         function(errorObject) {
           that.controller.set('error', errorObject.error);
+          that.controller.set('performingCreate', false);
         }
       );
     },
