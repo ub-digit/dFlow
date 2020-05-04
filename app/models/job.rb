@@ -77,7 +77,6 @@ class Job < ActiveRecord::Base
         source_link: source_link,
         package_metadata: package_metadata_hash,
         main_status: main_status,
-        files: files_list,
         is_periodical: is_periodical,
         status: flow_step ? flow_step.description : "",
         flow_step: flow_step,

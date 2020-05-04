@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     get 'statistics/:id', to: 'statistics#get_build_status'
     get 'statistics/download/:id', to: 'statistics#download'
 
+    get 'files', to: 'files#index'
   end
   mount_ember_app :frontend, to: "/"
 end
