@@ -51,7 +51,7 @@ export default {
     id: "ID",
     name: "Namn",
     new: "Skapa ny katalog",
-    create: "Skapa",
+    create: "Spara",
     edit: "Redigera",
     update: "Spara ändringar",
     cancel: "Avbryt",
@@ -110,7 +110,6 @@ export default {
   jobs: {
     header: "Jobb",
     new: "Skapa jobb",
-    createsubmit: "Skapa jobb",
     cancel: "Avbryt",
     source: "Källa",
     catalog_id: "ID",
@@ -125,6 +124,7 @@ export default {
     idMissing: "Ogiltigt ID",
     edit: "Redigera",
     save: "Spara",
+    saving: "Sparar",
     breadcrumb: "Placering",
     copyright_values: {
       'unselected': "Välj",
