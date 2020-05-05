@@ -131,7 +131,7 @@ export default {
     comment: "Kommentarer",
     object_info: "Objektinformation",
     id: "ID",
-    idMissing: "Ogiltigt ID",
+    idMissing: "Ogiltigt jobb-ID",
     edit: "Redigera",
     save: "Spara",
     saving: "Sparar",
@@ -148,7 +148,7 @@ export default {
       "none": "Ingen"
     },
     search: "Sök",
-    searchById: "Sök på jobb-ID",
+    searchById: "Ange jobb-ID",
     print: "Utskrift",
     start: "Starta digitalisering",
     delete: "Radera jobb",
