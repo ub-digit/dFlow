@@ -116,9 +116,14 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
           that.transitionTo('jobs.show', job);
         },
         function(){
-          that.controller.set('job_id_error', this.get('i18n').t('jobs.idMissing') + ': ' + job_id);
+          Ember.$("#app-outer").removeClass("loading");
+          that.controller.set('job_id_error', that.get('i18n').t('jobs.idMissing') + ': ' + job_id);
         });
       }
+    },
+    findJobs: function(search_term) {
+      this.controller.set('search_term', null);
+      this.transitionTo('jobs.index', {queryParams: {query: search_term, page: 1}});
     },
     invalidateSession: function(){
       this.get('session').invalidate();
