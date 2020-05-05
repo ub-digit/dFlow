@@ -89,7 +89,7 @@
       <div class="col-md-6 col-xs-12">
         <div class="input-group">
           {{input value=query class="form-control"
-          placeholderTranslation="jobs.search"}}
+          placeholder=(t 'jobs.search')}}
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" {{action 'searchJobs' query}}>{{t 'jobs.search'}}</button>
           </span>
