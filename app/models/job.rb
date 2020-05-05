@@ -271,10 +271,20 @@ class Job < ActiveRecord::Base
   def display
     title_trunc = title_string.truncate(85, separator: ' ')
     display = name.present? ? name : title_trunc
-    if !ordinals.blank?
-      display += " (#{ordinals})"
+    chrons_exist = false
+    if ordinals.present? || chrons.present?
+      display += " ("
+      if chrons.present?
+        chrons_exist = true
+        display += "#{chrons}"
+      end
+      if ordinals.present?
+        display += ", " if chrons_exist
+        display += "#{ordinals}"
+      end
+      display += ")"
     else
-      if !name.blank? && !title.blank?
+      if name.present? && title.present?
         display += " (#{title_trunc})"
       end
     end
