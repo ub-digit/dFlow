@@ -60,10 +60,12 @@ export default Ember.Controller.extend({
       this.set('open', string);
       if (string === 'files') {
         if (!this.get('files')) {
+          Ember.$("#app-outer").addClass("loading");
           let job_id = this.get('model.id');
           this.store.find('file', {job_id: job_id}).then(
             (files) => {
               this.set('files', files);
+              Ember.$("#app-outer").removeClass("loading");
             }
           );
         }
