@@ -14,7 +14,13 @@
           {{input type="text" classBinding=":form-control :col-xs-6" value=model.name}}
         </label>
         <div class="col-xs-12">
-          <button class="btn btn-primary" {{action 'createNode' model}}>{{t 'nodes.create'}}</button>
+          <button class="btn btn-primary" disabled={{performingCreate}} {{action 'createNode' model}}>
+            {{#if performingCreate}}
+              {{t 'nodes.creating'}}
+            {{else}}
+              {{t 'nodes.create'}}
+            {{/if}}
+          </button>
           {{#link-to 'node.show' class="btn btn-default"}}{{t 'nodes.cancel'}}{{/link-to}}
         </div>
       </div>
