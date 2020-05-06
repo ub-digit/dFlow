@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 tagName: 'tr',
+performingAction: false,
 
 classNameBindings: ['isNotActivated:default', 'isActivated:warning', 'isRunning:info', 'isFinished:success'],
 
@@ -53,6 +54,7 @@ startedAt: Ember.computed('flowStep.started_at', function(){
 
   actions: {
     flowStepSuccess(flowStep) {
+      this.set('performingAction', true);
       this.sendAction('flowStepSuccessAction', flowStep);
     }
   }

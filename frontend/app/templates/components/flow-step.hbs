@@ -13,7 +13,7 @@
   {{else}}
     {{#if enteredAt}}
       {{#unless viewMode}}
-        <button class="btn btn-primary" {{action 'flowStepSuccess' flowStep}}>{{t 'flowStep.manual_finish'}}</button>
+        <button class="btn btn-primary" disabled={{performingAction}} {{action 'flowStepSuccess' flowStep}}>{{t 'flowStep.manual_finish'}}</button>
       {{/unless}}
     {{/if}}
   {{/if}}
