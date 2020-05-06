@@ -287,9 +287,17 @@
           <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
             <div class="panel-body">
               {{#if filesIsOpen}}
-              {{#each files as |file|}}
-              {{tree-item item=file jobId=model.id}}
-              {{/each}}
+                {{#if filesLoading}}
+                  <span class="file-list-info">{{t 'jobs.loadingFiles'}}</span>
+                {{else}}
+                  {{#if files}}
+                    {{#each files as |file|}}
+                      {{tree-item item=file jobId=model.id}}
+                    {{/each}}
+                  {{else}}
+                    <span class="file-list-info">{{t 'jobs.noFiles'}}</span>
+                  {{/if}}
+                {{/if}}
               {{/if}}
             </div>
           </div>
