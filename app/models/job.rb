@@ -176,8 +176,8 @@ class Job < ActiveRecord::Base
 
   # Combine selected metadata into a single string to use in search_title
   def generate_search_title_metadata_string
-    ord = ordinals(true)
-    chron = chrons(true)
+    ord = ordinals(return_raw: true)
+    chron = chrons(return_raw: true)
     ord_string = ord.map { |x| x.join(" ")}.compact.join(" ")
     chron_string = chron.map { |x| x.join(" ")}.compact.join(" ")
     [ord_string, chron_string].compact.join(" ")
@@ -280,10 +280,10 @@ class Job < ActiveRecord::Base
       display += " ("
       if chrons.present?
         chrons_exist = true
-        display += "#{chrons}"
+        display += "#{chrons(values_only: true, omit_last: true)}"
       end
       if ordinals.present?
-        display += ", " if chrons_exist
+        display += " | " if chrons_exist
         display += "#{ordinals}"
       end
       display += ")"
@@ -320,7 +320,7 @@ class Job < ActiveRecord::Base
   end
 
   # Returns ordinal data as a string representation
-  def ordinals(return_raw = false)
+  def ordinals(return_raw: false)
     ordinal_data = []
     ordinal_data << ordinal_num(1) if ordinal_num(1)
     ordinal_data << ordinal_num(2) if ordinal_num(2)
@@ -338,20 +338,21 @@ class Job < ActiveRecord::Base
   end
 
   # Returns chronological data as a string representation
-  def chrons(return_raw = false)
+  def chrons(return_raw: false, values_only: false, omit_last: false)
     chron_data = []
-    chron_data << chron_num(1) if chron_num(1)
-    chron_data << chron_num(2) if chron_num(2)
-    chron_data << chron_num(3) if chron_num(3)
+    chron_data << chron_num(1, values_only) if chron_num(1, values_only)
+    chron_data << chron_num(2, values_only) if chron_num(2, values_only)
+    chron_data << chron_num(3, values_only) if chron_num(3, values_only) && !omit_last
     return chron_data if return_raw
     chron_data.map { |x| x.join(" ") }.join(", ")
   end
 
   # Returns an chronological array for given key
-  def chron_num(num)
+  def chron_num(num, values_only)
     key = metadata_value("chron_#{num}_key")
     value = metadata_value("chron_#{num}_value")
     return nil if key.blank? || value.blank?
+    return [value] if values_only
     [key, value]
   end
 
