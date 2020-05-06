@@ -102,3 +102,7 @@
   font-size: 12px;
   margin-left: 10px;  
 }
+
+.file-list-info {
+  font-style: italic;
+}
