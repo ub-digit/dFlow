@@ -170,6 +170,8 @@ export default {
     other: "Övrigt",
     xml: "XML",
     files: "Filer",
+    loadingFiles: "Fillista hämtas...",
+    noFiles: "Inga filer att visa.",
     ordinality: "Ordinalitet",
     chronology: "Kronologi",
     key: "Nyckel",
