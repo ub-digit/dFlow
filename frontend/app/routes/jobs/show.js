@@ -23,11 +23,13 @@ export default Ember.Route.extend({
     });
     controller.set('model', job_model);
     controller.set('files', null);
+    controller.set('performingManualAction', false);
   },
   actions: {
     
     // Sets job status to 'digitizing'
     flowStepSuccessDoStuff(job, flowStep){
+      this.controller.set('performingManualAction', true);
       // If save param is true, save job first
       if (flowStep.params.save === true) {
         this.store.save('job', job).then(
@@ -37,11 +39,13 @@ export default Ember.Route.extend({
               this.refresh(job.id); // Refresh children of current model
             },
             (errorObject) => {
+              this.controller.set('performingManualAction', false);
               this.controller.set('error', errorObject.error);
             }
           );
       },
           (errorObject) => {
+            this.controller.set('performingManualAction', false);
             this.controller.set('error', errorObject.error);
           }
         );
@@ -51,6 +55,7 @@ export default Ember.Route.extend({
             this.refresh(job.id); // Refresh children of current model
           },
           (errorObject) => {
+            this.controller.set('performingManualAction', false);
             this.controller.set('error', errorObject.error);
           }
         );
