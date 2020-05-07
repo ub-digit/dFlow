@@ -52,8 +52,10 @@ export default {
     name: "Namn",
     new: "Skapa ny katalog",
     create: "Spara",
+    creating: "Sparar",
     edit: "Redigera",
     update: "Spara ändringar",
+    updating: "Sparar ändringar",
     cancel: "Avbryt",
     children: {
       header: "Kataloger"
@@ -65,6 +67,8 @@ export default {
     move_confirm: "Är du säker på att du vill flytta katalogen till",
     move_parent_not_found: "Kunde inte hitta destinationskatalogen",
     delete: "Radera katalogen",
+    deleting: "Raderar katalogen",
+    generalError: "Det uppstod ett fel när katalogen skulle flyttas eller raderas",
     confirm_delete: "Är du säker på att du vill radera katalogen och ALLA dess underliggande kataloger och jobb från systemet?",
     hasActionStates: "Innehåller jobb som väntar på manuell åtgärd"
   },
