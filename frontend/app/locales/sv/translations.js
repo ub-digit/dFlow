@@ -148,7 +148,7 @@ export default {
       "none": "Ingen"
     },
     search: "Sök",
-    searchById: "Ange jobb-ID",
+    searchById: "Jobb-ID",
     print: "Utskrift",
     start: "Starta digitalisering",
     delete: "Radera jobb",

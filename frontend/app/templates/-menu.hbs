@@ -12,6 +12,7 @@
       <li>{{#link-to 'queuemanager'}}Köhanterare{{/link-to}}</li>
       {{/if}}
     </ul>
+    {{#if session.isAuthenticated}}
     <div class="form-group navbar-form navbar-left">
       {{input enter="findJobs" class="form-control" value=search_term placeholder=(t 'jobs.search')}}
     </div>
@@ -19,6 +20,7 @@
       {{input enter="showJob" class="form-control" value=job_id placeholder=(t 'jobs.searchById')}}
       <span class="job-id-error">{{job_id_error}}</span>
     </div>
+    {{/if}}
     <ul class="nav navbar-nav navbar-right">
       <li><a href="http://github.com/ub-digit/dFlow/commit/{{version_info.commit}}">Version: {{version_info.version}}</a></li>
       {{#if session.data.authenticated.can_view_users}}
