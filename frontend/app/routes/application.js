@@ -130,6 +130,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
     refreshApplication: function(){
       this.refresh();
+    },
+    willTransition: function() {
+      this.controller.set('job_id_error', null);
     }
   }
 });
