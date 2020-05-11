@@ -123,7 +123,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
     findJobs: function(search_term) {
       this.controller.set('search_term', null);
-      this.transitionTo('jobs.index', {queryParams: {query: search_term, page: 1}});
+      this.transitionTo('jobs.index', {queryParams: {query: search_term, page: 1, state: null, quarantined: ""}});
     },
     invalidateSession: function(){
       this.get('session').invalidate();
