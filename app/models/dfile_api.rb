@@ -319,6 +319,20 @@ class DfileApi
     end
   end
 
+  def self.delete_folder(folder_path:)
+
+    response = HTTParty.get("#{host}/delete_folder", query: {
+      source_dir: folder_path,
+      api_key: api_key
+    })
+
+    if response.success?
+      return true
+    else
+      raise StandardError, "Couldn't delete folder: #{folder_path} #{response['error']}"
+    end
+  end
+
   def self.combine_pdf_files(source_dir:, dest_file:)
     response = HTTParty.get("#{host}/combine_pdf_files", query: {
       source_dir: source_dir,
