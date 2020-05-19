@@ -109,7 +109,7 @@ class Treenode < ActiveRecord::Base
     base_json = super
 
     if options[:include_children]
-      base_json[:children] = self.children.order(name: :asc)
+      base_json[:children] = self.children.sort{|a,b| NaturalSort.comparator(a.name, b.name)}
     end
 
     if options[:include_jobs]

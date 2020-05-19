@@ -107,6 +107,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    naturalsort (1.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -232,6 +233,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   marc
+  naturalsort
   nokogiri
   pg
   prawn
@@ -251,4 +253,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.16.6
