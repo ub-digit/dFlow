@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
   filesIsOpen: Ember.computed.equal('open', 'files'),
   flowIsOpen: Ember.computed.equal('open', 'flow'),
   pubLogIsOpen: Ember.computed.equal('open', 'pub_log'),
+  recreateFlow: true,
 
   pdfUrl: Ember.computed('model', function() {
     var token =  this.get('session.data.authenticated.token');
