@@ -39,6 +39,10 @@
  padding-bottom: 0px;
 }
 
+.panel-title a {
+  display: block;
+}
+
 #jsoneditor3 {
   height: 500px;
 }
@@ -105,4 +109,246 @@
 
 .file-list-info {
   font-style: italic;
+}
+
+
+.dscribe-wrapper {
+  border: 1px solid #ccc;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  min-height: 200px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+
+
+}
+
+
+
+.dscribe-wrapper .image-thumbnail img {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+.dscribe-wrapper .image-thumbnail  {
+  position: relative;
+
+}
+.dscribe-wrapper .image-thumbnail .fa {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  left: 12px;
+}
+
+
+.dscribe-wrapper .toolbar-logical, .dscribe-wrapper .toolbar-physical {
+  width: 100%;
+}
+
+.dscribe-wrapper h5 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.dscribe-wrapper .toolbar-physical #BookCover.BookCover span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #BookCover.BookCover {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #LeftPage.LeftPage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+
+.dscribe-wrapper .toolbar-physical #LeftPage.LeftPage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #RightPage.RightPage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #RightPage.RightPage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #DoublePage.DoublePage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #DoublePage.DoublePage {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-physical #LoosePage.LoosePage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #LoosePage.LoosePage {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-physical #FoldOut.FoldOut span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #FoldOut.FoldOut {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-physical #ColorTarget.ColorTarget span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #ColorTarget.ColorTarget {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #BookSpine.BookSpine span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #BookSpine.BookSpine {
+  color: #fff;
+  background: #004b89;
+}
+
+
+.dscribe-wrapper .toolbar-logical #TitlePage.TitlePage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #TitlePage.TitlePage {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-logical #OriginalCover.OriginalCover span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #OriginalCover.OriginalCover {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-logical #TableOfContents.TableOfContents span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #TableOfContents.TableOfContents {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-logical #Index.Index span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #Index.Index {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-logical #EmptyPage.EmptyPage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #EmptyPage.EmptyPage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-logical #Illustration.Illustration span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #Illustration.Illustration {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-logical #PhotographicIllustration.PhotographicIllustration span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #PhotographicIllustration.PhotographicIllustration {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper.selected {
+  border: 1px solid rgb(155, 165, 155);
+  background-color: #cbdbcb;
+}
+
+.dscribe-wrapper .toolbar-logical #TitlePage.TitlePage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .dscribe-header {
+  margin: -10px -10px 20px -10px;
+  color: #fff;
+  background: #004b89;
+  padding: 0 10px 0 10px;
+}
+
+.dscribe-wrapper .dscribe-header h4 {
+  display: inline-block;
+  font-size: 12px;
+}
+.dscribe-wrapper.selected  .dscribe-header span.icon {
+  display: inline-block;
+  float: right;
+  margin-top: 5px;
+}
+
+.dscribe-wrapper.selected  .dscribe-header span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+
+
+.control-sequence {
+  margin-bottom: 20px;;
+}
+.control-sequence button {
+  margin-top:25px;
+}
+.control-bar {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.control-bar button {
+    margin-top: 25px;
+}
+
+#select-controls button {
+  margin-left: 10px;
+}
+
+
+#pages {
+  height: 1000px;
+  overflow-y: scroll;
+}
+
+
+.disable-select {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
