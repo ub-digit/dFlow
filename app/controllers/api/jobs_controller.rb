@@ -193,12 +193,12 @@ class Api::JobsController < Api::ApiController
   end
 
   api :GET, '/jobs/:id/restart', 'Restarts a job'
-  description 'Restarts a job, meaning that the flow steps will be recreated and current flow step be set to the first step. This operation cannot be undone.'
+  description 'Restarts a job, meaning that the current flow step will be set to the first step and if parameter recreate_flow is set to true, the flow steps will be recreated. This operation cannot be undone.'
   def restart
     job = Job.find_by_id(params[:id])
     job.created_by = @current_user.username
     job.message = params[:message]
-    if params[:recreate_flow] = 'true'
+    if params[:recreate_flow].to_s == 'true'
       recreate_flow = true
     else
       recreate_flow = false
@@ -227,12 +227,12 @@ class Api::JobsController < Api::ApiController
   end
 
   api :GET, '/jobs/:id/unquarantine', 'Takes a Job out of Quarantine'
-  description 'Takes a job out of Quarantine state, and sets given flow step number as current flow step. Subsequent flow steps will be recreated.'
+  description 'Takes a job out of Quarantine state, and sets given flow step number as current flow step. Subsequent flow steps will be recreated if parameter recreate_flow is set to true.'
   param :step, :number, "Step number of flow step to set as current flow step for job." 
   def unquarantine
     job = Job.find_by_id(params[:id])
     job.created_by = @current_user.username
-    if params[:recreate_flow] = 'true'
+    if params[:recreate_flow].to_s == 'true'
       recreate_flow = true
     else
       recreate_flow = false
