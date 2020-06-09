@@ -130,6 +130,11 @@
   padding: 0 !important;
 }
 
+.metadata-setter-wrapper .modal.fade.in {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
 .metadata-setter-wrapper .modal .modal-footer {
   position: sticky;
   bottom: 0;
