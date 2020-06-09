@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    generatePageTypes() {
+  /*  generatePageTypes() {
       var that = this;
       this.get('packageMetadata.images').forEach((image, index) =>{
         var even = 'Undefined';
@@ -54,7 +54,7 @@ export default Ember.Component.extend({
           Ember.set(image, 'page_type', odd);
         }
       })
-    },
+    },*/
 
     applyMetadataSequence() {
       this.get('packageMetadata.images').filter(function(item) {return item.selected}).forEach((image, index) => {

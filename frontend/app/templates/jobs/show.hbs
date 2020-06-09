@@ -272,7 +272,10 @@
               {{#if metadataIsOpen}}
               {{xml-link jobId=model.id}}
               <br/>
-              {{metadata-setter packageMetadata=model.package_metadata flowStep=model.flow_step}}
+              <br/>
+              <div class="metadata-setter-wrapper">
+                {{metadata-setter packageMetadata=model.package_metadata flowStep=model.flow_step}}
+              </div>
               {{/if}}
             </div>
           </div>

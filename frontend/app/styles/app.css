@@ -1,3 +1,6 @@
+.container-fluid {
+  min-width: 1200px;
+}
 .form-group label {
   display: block;
   margin-bottom: 15px;
@@ -117,20 +120,42 @@
   padding: 10px;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  min-height: 200px;
   position: relative;
   border-radius: 4px;
   overflow: hidden;
-
-
 }
 
 
+.metadata-setter-wrapper .modal {
+  padding: 0 !important;
+}
+
+.metadata-setter-wrapper .modal .modal-footer {
+  position: sticky;
+  bottom: 0;
+  background: white;
+}
+
+.metadata-setter-wrapper .modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.metadata-setter-wrapper .modal-content {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+}
+
+.dscribe-wrapper .image-thumbnail {
+  text-align: center;
+}
 
 .dscribe-wrapper .image-thumbnail img {
   position: relative;
-  cursor: pointer;
-  width: 100%;
 }
 
 
@@ -143,6 +168,7 @@
   cursor: pointer;
   top: 10px;
   left: 12px;
+  font-size:20px;
 }
 
 
@@ -151,7 +177,7 @@
 }
 
 .dscribe-wrapper h5 {
-  margin-top: 0;
+  margin-top: 10px;
   font-weight: bold;
   font-size: 12px;
 }
@@ -165,6 +191,10 @@
   background: #004b89;
 }
 
+.dscribe-wrapper .toolbar-physical #LeftPage i {
+  color: #f00;
+}
+
 .dscribe-wrapper .toolbar-physical #LeftPage.LeftPage span.icon:before {
   font-family: FontAwesome; 
   content:"\f00c";
@@ -175,6 +205,9 @@
   background: #004b89;
 }
 
+.dscribe-wrapper .toolbar-physical #RightPage i {
+  color: #01ee01;
+}
 .dscribe-wrapper .toolbar-physical #RightPage.RightPage span.icon:before {
   font-family: FontAwesome; 
   content:"\f00c";
@@ -298,7 +331,7 @@
 }
 
 .dscribe-wrapper .dscribe-header {
-  margin: -10px -10px 20px -10px;
+  margin: -10px -10px 10px -10px;
   color: #fff;
   background: #004b89;
   padding: 0 10px 0 10px;
@@ -330,6 +363,11 @@
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
   margin-bottom: 20px;
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0;
+  z-index: 1000;
+  background: #fff;
 }
 .control-bar button {
     margin-top: 25px;
@@ -341,8 +379,8 @@
 
 
 #pages {
-  height: 1000px;
-  overflow-y: scroll;
+ /* height: 1000px;
+  overflow-y: scroll;*/
 }
 
 

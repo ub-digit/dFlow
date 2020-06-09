@@ -71,8 +71,8 @@ export default Ember.Component.extend(InViewportMixin, {
       this.set('image.page_content', page_content);
     },
     clickToggleSelect: function(e) {
-      if (e.target.type === "submit" || e.target.localName === "img") {
-        if (e.target.localName === "img") {
+      if (e.target.type === "submit" || e.target.localName === "i") {
+        if (e.target.className === "fa fa-search") {
           window.open(
             this.get("fileUrl"),
             '_blank' // <- This is what makes it open in a new window.
