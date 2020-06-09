@@ -71,7 +71,11 @@
         </a>
         {{else}}
         {{#if model.waitingForManualAction}}
-        <button class="btn btn-primary" disabled={{performingManualAction}} {{action 'flowStepSuccessDoStuff' model model.flow_step}}>{{model.flow_step.parsed_params.msg}}</button>
+        <!--<button class="btn btn-primary" disabled={{performingManualAction}} {{action 'flowStepSuccessDoStuff' model model.flow_step}}>{{model.flow_step.parsed_params.msg}}</button> -->
+          <div class="metadata-setter-wrapper">
+                {{metadata-setter packageMetadata=model.package_metadata flowStep=model.flow_step}}
+          </div>
+
         {{/if}}
         {{/if}}
         {{#if model.flow_step.parsed_params.pdf_file_path}}
@@ -259,7 +263,7 @@
             </div>
           </div>
         </div>
-        <div class="panel panel-default">
+        <!-- <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingTwo">
             <h4 class="panel-title">
               <a class="collapsed" data-toggle="collapse" {{action 'setOpen' 'metadata'}} data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -267,7 +271,7 @@
               </a>
             </h4>
           </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body">
               {{#if metadataIsOpen}}
               {{xml-link jobId=model.id}}
@@ -279,7 +283,7 @@
               {{/if}}
             </div>
           </div>
-        </div>
+        </div>-->
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingThree">
             <h4 class="panel-title">
