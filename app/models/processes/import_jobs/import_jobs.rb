@@ -119,30 +119,31 @@ class ImportJobs
     # The jobs to import are located in the first worksheet
     sheet = excel_file.worksheet(0)
 
-    # Check that each row has type content
-    if !@source.has_types(sheet)
-      @redis.set("dFlow:scripts:#{@process_id}:state", "ABORTED")
-      @redis.set("dFlow:scripts:#{@process_id}:action", "TYPE_ABSENT_ERROR")
-      @redis.set("dFlow:scripts:#{@process_id}:type", "ERROR")
-      @redis.set("dFlow:scripts:#{@process_id}:message", "Alla rader måste ha typ-angivelse")
-      return
-    end
+    if @source.name == "Libris"
+      # Check that each row has type content
+      if !@source.has_types(sheet)
+        @redis.set("dFlow:scripts:#{@process_id}:state", "ABORTED")
+        @redis.set("dFlow:scripts:#{@process_id}:action", "TYPE_ABSENT_ERROR")
+        @redis.set("dFlow:scripts:#{@process_id}:type", "ERROR")
+        @redis.set("dFlow:scripts:#{@process_id}:message", "Alla rader måste ha typ-angivelse")
+        return
+      end
 
-    # Check for duplicates, i.e. already existing jobs
-    begin
-      @duplicates = @source.find_duplicates(sheet)
-    rescue
-      @duplicates = []
-    end
+      # Check for duplicates, i.e. already existing jobs
+      begin
+        @duplicates = @source.find_duplicates(sheet)
+      rescue
+        @duplicates = []
+      end
 
-    if @duplicates.present?
-      @redis.set("dFlow:scripts:#{@process_id}:state", "ABORTED")
-      @redis.set("dFlow:scripts:#{@process_id}:action", "DUPLICATION_ERROR")
-      @redis.set("dFlow:scripts:#{@process_id}:type", "ERROR")
-      @redis.set("dFlow:scripts:#{@process_id}:message", "Följande ID:n finns redan i systemet: #{@duplicates.join(", ")}")
-      return
+      if @duplicates.present?
+        @redis.set("dFlow:scripts:#{@process_id}:state", "ABORTED")
+        @redis.set("dFlow:scripts:#{@process_id}:action", "DUPLICATION_ERROR")
+        @redis.set("dFlow:scripts:#{@process_id}:type", "ERROR")
+        @redis.set("dFlow:scripts:#{@process_id}:message", "Följande ID:n finns redan i systemet: #{@duplicates.join(", ")}")
+        return
+      end
     end
-
     # Read the rows of the spreadsheet
     row_count = sheet.to_a.count
     @redis.set("dFlow:scripts:#{@process_id}:state", "RUNNING")
