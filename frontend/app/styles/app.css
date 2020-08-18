@@ -1,5 +1,5 @@
 .container-fluid {
-  min-width: 1200px;
+
 }
 .form-group label {
   display: block;
@@ -113,9 +113,9 @@
 .file-list-info {
   font-style: italic;
 }
+text-align: center;
+}
 
-
-.dscribe-wrapper {
   border: 1px solid #ccc;
   padding: 10px;
   padding-bottom: 20px;
@@ -155,8 +155,15 @@
   border-radius: 0;
 }
 
+.dscribe-wrapper {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border: 1px solid rgb(155, 165, 155);
+}
+
 .dscribe-wrapper .image-thumbnail {
   text-align: center;
+  padding-top: 10px;
 }
 
 .dscribe-wrapper .image-thumbnail img {
@@ -166,25 +173,42 @@
 
 .dscribe-wrapper .image-thumbnail  {
   position: relative;
+  margin-bottom: 20px;
 
 }
 .dscribe-wrapper .image-thumbnail .fa {
   position: absolute;
   cursor: pointer;
-  top: 10px;
-  left: 12px;
+  top: 5px;
+  left: 8px;
   font-size:20px;
 }
 
 
 .dscribe-wrapper .toolbar-logical, .dscribe-wrapper .toolbar-physical {
   width: 100%;
+  text-align: center;
+
 }
 
 .dscribe-wrapper h5 {
   margin-top: 10px;
   font-weight: bold;
   font-size: 12px;
+}
+.dscribe-wrapper hr {
+  margin: 10px 0;
+}
+
+.dscribe-wrapper .toolbar-physical .btn, .dscribe-wrapper .toolbar-logical .btn {
+  font-size: 20px;
+  border: 1px solid transparent;
+}
+.dscribe-wrapper .toolbar-physical .btn:hover, .dscribe-wrapper .toolbar-logical .btn:hover {
+  border: 1px solid #ccc;
+}
+.dscribe-wrapper .toolbar-physical #BookCover i {
+  color: rgb(186, 101, 5);
 }
 
 .dscribe-wrapper .toolbar-physical #BookCover.BookCover span.icon:before {
@@ -273,6 +297,10 @@
   color: #fff;
   background: #004b89;
 }
+
+.dscribe-wrapper .toolbar-logical #OriginalCover i {
+  color: purple;
+}
 .dscribe-wrapper .toolbar-logical #OriginalCover.OriginalCover span.icon:before {
   font-family: FontAwesome; 
   content:"\f00c";
@@ -326,7 +354,6 @@
 }
 
 .dscribe-wrapper.selected {
-  border: 1px solid rgb(155, 165, 155);
   background-color: #cbdbcb;
 }
 
@@ -336,7 +363,6 @@
 }
 
 .dscribe-wrapper .dscribe-header {
-  margin: -10px -10px 10px -10px;
   color: #fff;
   background: #004b89;
   padding: 0 10px 0 10px;
