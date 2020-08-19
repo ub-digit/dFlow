@@ -73,7 +73,7 @@
         {{#if model.waitingForManualAction}}
         <!--<button class="btn btn-primary" disabled={{performingManualAction}} {{action 'flowStepSuccessDoStuff' model model.flow_step}}>{{model.flow_step.parsed_params.msg}}</button> -->
           <div class="metadata-setter-wrapper">
-                {{metadata-setter packageMetadata=model.package_metadata flowStep=model.flow_step}}
+                {{metadata-setter performingManualAction=performingManualAction packageMetadata=model.package_metadata flowStep=model.flow_step flowStepSuccess=(action "flowStepSuccess")}}
           </div>
 
         {{/if}}

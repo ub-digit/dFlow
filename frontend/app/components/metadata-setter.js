@@ -56,6 +56,13 @@ export default Ember.Component.extend({
       })
     },*/
 
+    saveMetaData(flowStep) {
+      var r = confirm("Är du säker på att du vill spara metadatan?");
+      if (r == true) {
+        this.get('flowStepSuccess')(flowStep);
+      }
+    },
+
     applyMetadataSequence() {
       this.get('packageMetadata.images').filter(function(item) {return item.selected}).forEach((image, index) => {
         var even = 'Undefined';

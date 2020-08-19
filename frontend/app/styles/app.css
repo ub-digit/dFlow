@@ -164,16 +164,18 @@ text-align: center;
 .dscribe-wrapper .image-thumbnail {
   text-align: center;
   padding-top: 10px;
+  border-bottom: 4px solid black;
 }
 
 .dscribe-wrapper .image-thumbnail img {
   position: relative;
+  margin-bottom: 20px;
 }
 
 
 .dscribe-wrapper .image-thumbnail  {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
 }
 .dscribe-wrapper .image-thumbnail .fa {

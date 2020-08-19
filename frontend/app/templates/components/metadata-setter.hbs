@@ -75,14 +75,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Stäng</button>
-        <button type="button" class="btn btn-primary">Spara metadata</button>
-        {{#if session.data.authenticated.can_manage_jobs}}
-          {{#unless model.quarantined}}
-            {{#if model.waitingForManualAction}}
-            <button class="btn btn-primary" disabled={{performingManualAction}} {{action 'flowStepSuccessDoStuff' model model.flow_step}}>{{model.flow_step.parsed_params.msg}}</button>
-            {{/if}}
-          {{/unless}}
-        {{/if}}
+        <button class="btn btn-primary" disabled={{performingManualAction}} {{action 'saveMetaData' flowStep}}>Spara metadata</button>
       </div>
     </div>
   </div>
