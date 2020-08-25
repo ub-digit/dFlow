@@ -170,6 +170,7 @@ text-align: center;
 .dscribe-wrapper .image-thumbnail img {
   position: relative;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 
@@ -203,7 +204,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-physical .btn, .dscribe-wrapper .toolbar-logical .btn {
-  font-size: 20px;
+  font-size: 15px;
   border: 1px solid transparent;
 }
 .dscribe-wrapper .toolbar-physical .btn:hover, .dscribe-wrapper .toolbar-logical .btn:hover {
@@ -418,6 +419,7 @@ text-align: center;
 
 
 .disable-select {
+  width: 322px;
   -webkit-user-select: none;  
   -moz-user-select: none;    
   -ms-user-select: none;      
