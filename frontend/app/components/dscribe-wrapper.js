@@ -16,9 +16,11 @@ export default Ember.Component.extend(InViewportMixin, {
       that.set('small', response.thumbnail);
     });
     } 
-
     this._super();
   },
+  setup: function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  }.on('didRender'),
 
   showLogical: Ember.computed('image.page_content', function() {
     if ((this.get('image.page_content') === "undefined") || (this.get('image.page_content') === "Undefined") || (this.get('image.page_content') === undefined)) {
