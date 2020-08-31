@@ -13,6 +13,11 @@ export default Ember.Component.extend({
         return image.selected;
       }).length;
   }),
+  setup: function() {
+    $('[data-toggle="tooltip"]').tooltip({
+      trigger : 'hover'
+  });
+  }.on('didRender'),
 
   actions: {
   /*  generatePageTypes() {
