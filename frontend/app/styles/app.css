@@ -200,7 +200,7 @@ text-align: center;
   font-size: 12px;
 }
 .dscribe-wrapper hr {
-  margin: 10px 0;
+  border: 1px solid;
 }
 
 .dscribe-wrapper .toolbar-physical .btn, .dscribe-wrapper .toolbar-logical .btn {

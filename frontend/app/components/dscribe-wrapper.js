@@ -46,26 +46,41 @@ export default Ember.Component.extend(InViewportMixin, {
   mouseLeave: function(){
     this.set('activeFrame', false);
   },
+  togglePhysical: function(page_type){
+    if (this.get("image.page_type") === page_type) {
+      this.set('image.page_type', undefined);
+    }
+    else {
+      this.set('image.page_type', page_type);
+    }
+    return false;
+  },
+  toggleLogical: function(page_content) {
+    if (this.get("image.page_content") === page_content) {
+      this.set('image.page_content', undefined);
+    }
+    else {
+      this.set('image.page_content', page_content);
+    }
+    return false;
+  },
 
   actions: {
-
-    togglePhysical: function(page_type){
-      if (this.get("image.page_type") === page_type) {
-        this.set('image.page_type', undefined);
+    catchPhysical: function(event) {
+      if (event.path[0].nodeName === "I") {
+        this.togglePhysical(event.path[1].id);
       }
-      else {
-        this.set('image.page_type', page_type);
+      else if (event.path[0].nodeName === 'BUTTON') {
+        this.togglePhysical(event.path[0].id);
       }
-      return false;
     },
-    toggleLogical: function(page_content) {
-      if (this.get("image.page_content") === page_content) {
-        this.set('image.page_content', undefined);
+    catchLogical: function(event) {
+      if (event.path[0].nodeName === "I") {
+        this.toggleLogical(event.path[1].id);
       }
-      else {
-        this.set('image.page_content', page_content);
+      else if (event.path[0].nodeName === 'BUTTON') {
+        this.toggleLogical(event.path[0].id);
       }
-      return false;
     },
     setLogical: function(page_content){
       this.set('image.page_content', page_content);
