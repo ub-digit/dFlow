@@ -9,9 +9,11 @@ export default Ember.Component.extend({
   latestSelected: null, 
 
   hasSelected: Ember.computed('packageMetadata.images.@each.selected', function() {
-     return this.get("packageMetadata.images").filter(image => {
+    if (this.get("packageMetadata.images")) { 
+    return this.get("packageMetadata.images").filter(image => {
         return image.selected;
       }).length;
+    }
   }),
   setup: function() {
     $('[data-toggle="tooltip"]').tooltip({
