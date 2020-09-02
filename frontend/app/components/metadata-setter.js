@@ -67,6 +67,7 @@ export default Ember.Component.extend({
       var r = confirm("Är du säker på att du vill spara metadatan?");
       if (r == true) {
         this.get('flowStepSuccess')(flowStep);
+        $('#myModal').modal('hide');
       }
     },
 
