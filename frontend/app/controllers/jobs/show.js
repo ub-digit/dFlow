@@ -16,6 +16,13 @@ export default Ember.Controller.extend({
   pubLogIsOpen: Ember.computed.equal('open', 'pub_log'),
   recreateFlow: true,
 
+  showMetadata: Ember.computed('model.flow_step', function() {
+    if ((this.get("model.flow_step.process") === "ASSIGN_METADATA") && (this.get("model.flow_step.params.manual"))) {
+      return true;
+    }
+    return false;
+  }),
+
   pdfUrl: Ember.computed('model', function() {
     var token =  this.get('session.data.authenticated.token');
     return ENV.APP.serviceURL + '/assets/file?file_path=' + this.get('model.flow_step.parsed_params.pdf_file_path') + '&token=' + token;

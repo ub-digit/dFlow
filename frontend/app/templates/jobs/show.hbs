@@ -24,27 +24,25 @@
     <span class="panel-title"><strong>{{model.id}}</strong> {{model.display}}</span>{{#if model.quarantined}} <span class="label label-danger"> {{t 'menu.quarantine'}}</span>{{/if}}
     <span class="pull-right" style="margin-top:0px;padding-top:0px;">
       {{#if session.data.authenticated.can_manage_jobs}}
+        {{#link-to 'jobs.show.edit' model class="btn navbar-btn"}}{{icon-link titleKey='jobs.edit' classNames='fa fa-2x fa-pencil-square-o'}}{{/link-to}}
+        <a class="btn" {{action 'deleteJob' model.id}}>{{icon-link titleKey='jobs.delete' classNames='fa fa-2x fa-trash'}}</a>
+        {{print-link jobId=model.id type="button" titleKey='jobs.print'}}
 
-      {{#link-to 'jobs.show.edit' model class="btn navbar-btn"}}{{icon-link titleKey='jobs.edit' classNames='fa fa-2x fa-pencil-square-o'}}{{/link-to}}
-      <a class="btn" {{action 'deleteJob' model.id}}>{{icon-link titleKey='jobs.delete' classNames='fa fa-2x fa-trash'}}</a>
-      {{print-link jobId=model.id type="button" titleKey='jobs.print'}}
+        <a type="button" class="btn" data-toggle="modal" data-target="#restartModal">
+          {{icon-link titleKey='jobs.restart' classNames='fa fa-2x fa-recycle'}}
+        </a>
 
-      <a type="button" class="btn" data-toggle="modal" data-target="#restartModal">
-        {{icon-link titleKey='jobs.restart' classNames='fa fa-2x fa-recycle'}}
-      </a>
-
-      {{#if model.quarantined}}
-      <!-- Button trigger modal -->
-      <a type="button" class="btn" data-toggle="modal" data-target="#unQuarantineModal">
-        {{icon-link titleKey='jobs.unQuarantine' classNames='fa fa-2x fa-exclamation-triangle'}}
-      </a>
-      {{else}}
-      <!-- Button trigger modal -->
-      <a type="button" class="btn" data-toggle="modal" data-target="#quarantineModal">
-        {{icon-link titleKey='jobs.quarantine' classNames='fa fa-2x fa-exclamation-triangle'}}
-      </a>
-      {{/if}}
-
+        {{#if model.quarantined}}
+        <!-- Button trigger modal -->
+        <a type="button" class="btn" data-toggle="modal" data-target="#unQuarantineModal">
+          {{icon-link titleKey='jobs.unQuarantine' classNames='fa fa-2x fa-exclamation-triangle'}}
+        </a>
+        {{else}}
+        <!-- Button trigger modal -->
+        <a type="button" class="btn" data-toggle="modal" data-target="#quarantineModal">
+          {{icon-link titleKey='jobs.quarantine' classNames='fa fa-2x fa-exclamation-triangle'}}
+        </a>
+        {{/if}}
       {{/if}}
     </span>
   </div>
@@ -70,13 +68,16 @@
           <i class="fa fa-lg fa-exclamation-triangle"></i> {{t 'jobs.unQuarantine'}}
         </a>
         {{else}}
-        {{#if model.waitingForManualAction}}
-        <!--<button class="btn btn-primary" disabled={{performingManualAction}} {{action 'flowStepSuccessDoStuff' model model.flow_step}}>{{model.flow_step.parsed_params.msg}}</button> -->
-          <div class="metadata-setter-wrapper">
-                {{metadata-setter performingManualAction=performingManualAction packageMetadata=model.package_metadata flowStep=model.flow_step flowStepSuccess=(action "flowStepSuccess")}}
-          </div>
+          {{#if model.waitingForManualAction}}
+            {{#if showMetadata }}
+              <div class="metadata-setter-wrapper">
+                    {{metadata-setter performingManualAction=performingManualAction packageMetadata=model.package_metadata flowStep=model.flow_step flowStepSuccess=(action "flowStepSuccess")}}
+              </div>
+            {{else }}
+              <button class="btn btn-primary" disabled={{performingManualAction}} {{action 'flowStepSuccessDoStuff' model model.flow_step}}>{{model.flow_step.parsed_params.msg}}</button>
+            {{/if}}
 
-        {{/if}}
+          {{/if}}
         {{/if}}
         {{#if model.flow_step.parsed_params.pdf_file_path}}
         <a class="btn btn-default btn-lg pull-right" href="{{pdfUrl}}" target="_blank"><i class="fa fa-file-pdf-o" style="color:red"></i> {{t 'jobs.pdfLink'}}</a>
