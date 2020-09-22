@@ -1,3 +1,6 @@
+.container-fluid {
+
+}
 .form-group label {
   display: block;
   margin-bottom: 15px;
@@ -37,6 +40,10 @@
  margin-bottom:0px;
  padding-top:0px;
  padding-bottom: 0px;
+}
+
+.panel-title a {
+  display: block;
 }
 
 #jsoneditor3 {
@@ -105,4 +112,316 @@
 
 .file-list-info {
   font-style: italic;
+}
+text-align: center;
+}
+
+  border: 1px solid #ccc;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+
+.metadata-setter-wrapper .modal {
+  padding: 0 !important;
+}
+
+.metadata-setter-wrapper .modal.fade.in {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.metadata-setter-wrapper .modal .modal-footer {
+  position: sticky;
+  bottom: 0;
+  background: white;
+}
+
+.metadata-setter-wrapper .modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.metadata-setter-wrapper .modal-content {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+}
+
+.dscribe-wrapper {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border: 1px solid rgb(155, 165, 155);
+}
+
+.dscribe-wrapper .image-thumbnail {
+  text-align: center;
+  padding-top: 10px;
+  border-bottom: 4px solid black;
+}
+
+.dscribe-wrapper .image-thumbnail img {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+.dscribe-wrapper .image-thumbnail  {
+  position: relative;
+  margin-bottom: 10px;
+
+}
+.dscribe-wrapper .image-thumbnail .fa {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  left: 8px;
+  font-size:20px;
+}
+
+
+.dscribe-wrapper .toolbar-logical, .dscribe-wrapper .toolbar-physical {
+  width: 100%;
+  text-align: center;
+
+}
+
+.dscribe-wrapper h5 {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.dscribe-wrapper hr {
+  border: 1px solid;
+}
+
+.dscribe-wrapper .toolbar-physical .btn, .dscribe-wrapper .toolbar-logical .btn {
+  font-size: 15px;
+  border: 1px solid transparent;
+}
+.dscribe-wrapper .toolbar-physical .btn:hover, .dscribe-wrapper .toolbar-logical .btn:hover {
+  border: 1px solid #ccc;
+}
+.dscribe-wrapper .toolbar-physical #BookCover i {
+  color: rgb(186, 101, 5);
+}
+
+.dscribe-wrapper .toolbar-physical #BookCover.BookCover span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #BookCover.BookCover {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #LeftPage i {
+  color: #f00;
+}
+
+.dscribe-wrapper .toolbar-physical #LeftPage.LeftPage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+
+.dscribe-wrapper .toolbar-physical #LeftPage.LeftPage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #RightPage i {
+  color: #01ee01;
+}
+.dscribe-wrapper .toolbar-physical #RightPage.RightPage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #RightPage.RightPage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #DoublePage.DoublePage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #DoublePage.DoublePage {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-physical #LoosePage.LoosePage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #LoosePage.LoosePage {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-physical #FoldOut.FoldOut span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #FoldOut.FoldOut {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-physical #ColorTarget.ColorTarget span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #ColorTarget.ColorTarget {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-physical #BookSpine.BookSpine span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-physical #BookSpine.BookSpine {
+  color: #fff;
+  background: #004b89;
+}
+
+
+.dscribe-wrapper .toolbar-logical #TitlePage.TitlePage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #TitlePage.TitlePage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-logical #OriginalCover i {
+  color: purple;
+}
+.dscribe-wrapper .toolbar-logical #OriginalCover.OriginalCover span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #OriginalCover.OriginalCover {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-logical #TableOfContents.TableOfContents span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #TableOfContents.TableOfContents {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-logical #Index.Index span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #Index.Index {
+  color: #fff;
+  background: #004b89;
+}
+.dscribe-wrapper .toolbar-logical #EmptyPage.EmptyPage span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #EmptyPage.EmptyPage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-logical #Illustration.Illustration span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #Illustration.Illustration {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .toolbar-logical #PhotographicIllustration.PhotographicIllustration span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+.dscribe-wrapper .toolbar-logical #PhotographicIllustration.PhotographicIllustration {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper.selected {
+  background-color: #cbdbcb;
+}
+
+.dscribe-wrapper .toolbar-logical #TitlePage.TitlePage {
+  color: #fff;
+  background: #004b89;
+}
+
+.dscribe-wrapper .dscribe-header {
+  color: #fff;
+  background: #004b89;
+  padding: 0 10px 0 10px;
+}
+
+.dscribe-wrapper .dscribe-header h4 {
+  display: inline-block;
+  font-size: 12px;
+}
+.dscribe-wrapper.selected  .dscribe-header span.icon {
+  display: inline-block;
+  float: right;
+  margin-top: 5px;
+}
+
+.dscribe-wrapper.selected  .dscribe-header span.icon:before {
+  font-family: FontAwesome; 
+  content:"\f00c";
+}
+
+
+.control-sequence {
+  margin-bottom: 20px;;
+}
+.control-sequence button {
+  margin-top:25px;
+}
+.control-bar {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+}
+.control-bar button {
+    margin-top: 25px;
+}
+
+#select-controls button {
+  margin-left: 10px;
+}
+
+
+#pages {
+ /* height: 1000px;
+  overflow-y: scroll;*/
+}
+
+
+.disable-select {
+  width: 322px;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
