@@ -107,7 +107,7 @@
 .job-id-error {
   color: red;
   font-size: 12px;
-  margin-left: 10px;  
+  margin-left: 10px;
 }
 
 .file-list-info {
@@ -215,7 +215,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-physical #BookCover.BookCover span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-physical #BookCover.BookCover {
@@ -228,7 +228,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-physical #LeftPage.LeftPage span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 
@@ -241,7 +241,7 @@ text-align: center;
   color: #01ee01;
 }
 .dscribe-wrapper .toolbar-physical #RightPage.RightPage span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-physical #RightPage.RightPage {
@@ -250,7 +250,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-physical #DoublePage.DoublePage span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-physical #DoublePage.DoublePage {
@@ -258,7 +258,7 @@ text-align: center;
   background: #004b89;
 }
 .dscribe-wrapper .toolbar-physical #LoosePage.LoosePage span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-physical #LoosePage.LoosePage {
@@ -266,7 +266,7 @@ text-align: center;
   background: #004b89;
 }
 .dscribe-wrapper .toolbar-physical #FoldOut.FoldOut span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-physical #FoldOut.FoldOut {
@@ -274,7 +274,7 @@ text-align: center;
   background: #004b89;
 }
 .dscribe-wrapper .toolbar-physical #ColorTarget.ColorTarget span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-physical #ColorTarget.ColorTarget {
@@ -283,7 +283,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-physical #BookSpine.BookSpine span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-physical #BookSpine.BookSpine {
@@ -293,7 +293,7 @@ text-align: center;
 
 
 .dscribe-wrapper .toolbar-logical #TitlePage.TitlePage span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-logical #TitlePage.TitlePage {
@@ -305,7 +305,7 @@ text-align: center;
   color: purple;
 }
 .dscribe-wrapper .toolbar-logical #OriginalCover.OriginalCover span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-logical #OriginalCover.OriginalCover {
@@ -313,7 +313,7 @@ text-align: center;
   background: #004b89;
 }
 .dscribe-wrapper .toolbar-logical #TableOfContents.TableOfContents span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-logical #TableOfContents.TableOfContents {
@@ -322,7 +322,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-logical #Index.Index span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-logical #Index.Index {
@@ -330,7 +330,7 @@ text-align: center;
   background: #004b89;
 }
 .dscribe-wrapper .toolbar-logical #EmptyPage.EmptyPage span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-logical #EmptyPage.EmptyPage {
@@ -339,7 +339,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-logical #Illustration.Illustration span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-logical #Illustration.Illustration {
@@ -348,7 +348,7 @@ text-align: center;
 }
 
 .dscribe-wrapper .toolbar-logical #PhotographicIllustration.PhotographicIllustration span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 .dscribe-wrapper .toolbar-logical #PhotographicIllustration.PhotographicIllustration {
@@ -382,7 +382,7 @@ text-align: center;
 }
 
 .dscribe-wrapper.selected  .dscribe-header span.icon:before {
-  font-family: FontAwesome; 
+  font-family: FontAwesome;
   content:"\f00c";
 }
 
@@ -419,9 +419,9 @@ text-align: center;
 
 
 .disable-select {
-  width: 322px;
-  -webkit-user-select: none;  
-  -moz-user-select: none;    
-  -ms-user-select: none;      
+  width: 323px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
