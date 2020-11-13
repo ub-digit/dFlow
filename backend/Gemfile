@@ -1,0 +1,66 @@
+source 'https://rubygems.org'
+
+
+ruby "2.3.1"
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.0'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.0'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0',          group: :doc
+
+
+
+group :test, :development do
+  # Use rspec for testing
+  gem 'rspec-rails', '~> 3.1'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'database_cleaner'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'shoulda'
+end
+
+gem 'nokogiri'
+
+gem 'pg'
+
+gem 'marc'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'httparty'
+
+gem 'redis'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'rack-cors', :require => 'rack/cors'
+
+gem 'will_paginate', '~> 3.0.5'
+gem 'prawn' # For PDF creation
+gem 'responders', '~> 2.0'
+
+gem 'apipie-rails' # For documentation
+
+group :development do
+  gem 'capistrano', '~> 3.11.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+end
+
+gem 'unicode', '~> 0.4.4.2'
+gem 'spreadsheet'
+gem 'naturalsort', :require => 'natural_sort_kernel'
