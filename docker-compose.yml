@@ -1,0 +1,21 @@
+version: "2.2"
+
+services:
+  frontend:
+    image: ember-dev:3.14.0
+        # Keep the stdin open, so we can attach to our app container's process
+    # and do things such as debugging, etc
+    stdin_open: true
+    # Enable sending signals (CTRL+C, CTRL+P + CTRL+Q) into the container
+    tty: true
+    ports:
+        # TODO: Change production image to 4200 instead of 8080
+        # so dont have to override here
+        # server
+        - 4200:4200
+        # livereload
+        - 7020:7020
+        # Tests in browser
+        - 7357:7357
+    volumes:
+        - ./frontend:/home/node/app
