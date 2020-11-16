@@ -4,8 +4,16 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+
+# Ignore sql-file
+/docker-entrypoint-initdb.d/*.sql
+docker/docker-entrypoint-initdb.d/*.sql
+
 # Ignore bundler config.
 /.bundle
+
+
+/vscode
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -13,12 +21,20 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/backend/log/*.log
 /tmp
+backend/log/*.log
 
-config/config_secret.yml
-config/database.yml
-config/deploy.yml
-config/config_full.yml
+
+backend/config/deploy.yml
+backend/config/config_full.yml
+backend/config/passwd
+
+docker/build/backend/config/config_full.yml
+docker/build/backend/config/system_data.yml
+docker/build/backend/config/secrets.yml
+docker/.env
+
 last_commit.txt
 *~
 \#*#

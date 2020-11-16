@@ -1,0 +1,20 @@
+default: &default
+  host: <%= ENV['DFLOW_DB_HOST'] %>
+  port: <%= ENV["DFLOW_DB_PORT"] %>
+  pool: 10
+  timeout: 5000
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV["DFLOW_DB"] %>
+  template: template0
+  username: <%= ENV["DFLOW_DB_USER"] %>
+  password: <%= ENV["DFLOW_DB_PASSWORD"] %>
+development:
+  <<: *default
+production:
+  <<: *default
+  pool: 100
+staging:
+  <<: *default
+lab:
+  <<: *default
