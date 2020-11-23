@@ -1,0 +1,26 @@
+version: "2.2"
+
+services:
+    frontend:
+        image: docker.ub.gu.se/ember-dev:3.14.0
+        ports:
+            # TODO: Change production image to 4200 instead of 8080
+            # so dont have to override here
+            # server
+            - ${DFLOW_FRONTEND_PORT}:4200
+            # livereload
+            - 35730:35730
+            # Tests in browser
+            - 7357:7357
+        volumes:
+            - ../frontend:/home/node/app
+    backend:
+        image: docker.ub.gu.se/rails:ruby-2.3.1
+        volumes:
+            - ../backend:/usr/src/app
+        command: ["sh", "-c", "bundle install && rails server -b 0.0.0.0 -e development"]
+    db:
+        image: postgres:9.4
+        volumes:
+            - ./build/postgres/postgres.conf:/etc/postgresql/postgresql.conf
+

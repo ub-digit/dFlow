@@ -25,28 +25,45 @@ module.exports = function(environment) {
    }
   };
 
+  let baseURL = null;
+  let hostName = null;
+
   if (environment === 'development') {
+    hostName = 'localhost';
+    baseURL = 'http://' + hostName + ':' + process.env.DFLOW_SERVICE_PORT;
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     //ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
-    ENV.APP.authenticationBaseURL = 'http://localhost:3000/session';
-    ENV.APP.serviceURL = 'http://localhost:3000';
+  }
+  else if (environment === 'lab') {
+    hostName = process.env.DFLOW_SERVICE_HOSTNAME;
+    baseURL = 'http://' + hostName;
+
+    ENV.contentSecurityPolicy = {
+     'font-src': "'self' fonts.gstatic.com",
+     'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
+    };
+  }
+  if (baseURL) {
+    ENV.APP.serviceURL = baseURL + ENV.APP.serviceURL;
+    ENV.APP.authenticationBaseURL = baseURL + ENV.APP.authenticationBaseURL;
   }
 
-  if (environment === 'test') {
-    // Testem prefers this...
-    ENV.locationType = 'none';
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'font-src': "'self' fonts.gstatic.com",
+    'img-src': "'self'",
+    'style-src': "'self' fonts.googleapis.com",
+    'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
+    'report-uri': "/"
+  };
 
-    // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
-
-    ENV.APP.rootElement = '#ember-testing';
+  if (hostName) {
+    ENV.contentSecurityPolicy['script-src'] = "'self' " + hostName;
   }
-
 
   return ENV;
 };
