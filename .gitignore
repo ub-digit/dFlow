@@ -29,6 +29,8 @@ backend/config/config_secret.yml
 backend/config/database.yml
 backend/config/deploy.yml
 backend/config/config_full.yml
+backend/config/secrets.yml
+backend/config/passwd
 last_commit.txt
 *~
 \#*#
