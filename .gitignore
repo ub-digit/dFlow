@@ -23,11 +23,12 @@ docker/docker-entrypoint-initdb.d/*.sql
 /log/*.log
 /backend/log/*.log
 /tmp
+backend/log/*.log
 
-config/config_secret.yml
-config/database.yml
-config/deploy.yml
-config/config_full.yml
+backend/config/config_secret.yml
+backend/config/database.yml
+backend/config/deploy.yml
+backend/config/config_full.yml
 last_commit.txt
 *~
 \#*#
