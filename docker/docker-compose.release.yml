@@ -1,11 +1,12 @@
 version: "3.5"
+
 services:
   frontend:
-        image: docker.ub.gu.se/dflow-frontend:${GIT_REVISION}
+    image: docker.ub.gu.se/dflow-frontend:${GIT_REVISION}
     ports:
       # Port differs in release image for ember
       # TODO: Change so nginx listens at 4200 instead to we don't need this?
-      - ${GUP_FRONTEND_PORT}:${DFLOW_FRONTEND_PORT}
+      - ${DFLOW_FRONTEND_PORT}:8080
   backend:
     image: docker.ub.gu.se/dflow-backend:${GIT_REVISION}
   db:
