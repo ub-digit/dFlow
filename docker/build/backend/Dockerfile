@@ -12,6 +12,7 @@ RUN set -ex \
 FROM docker.ub.gu.se/rails:ruby-2.3.1
 
 COPY --from=release /root/release/backend /usr/src/app
+COPY ./config /usr/src/app/config
 
 RUN bundle install
 
