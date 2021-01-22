@@ -25,12 +25,14 @@ docker/docker-entrypoint-initdb.d/*.sql
 /tmp
 backend/log/*.log
 
+
 backend/config/deploy.yml
 backend/config/config_full.yml
 backend/config/passwd
 
 docker/build/backend/config/config_full.yml
 docker/build/backend/config/system_data.yml
+docker/build/backend/config/secrets.yml
 docker/.env
 
 last_commit.txt
