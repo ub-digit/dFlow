@@ -31,6 +31,7 @@ backend/config/passwd
 
 docker/build/backend/config/config_full.yml
 docker/build/backend/config/system_data.yml
+docker/.env
 
 last_commit.txt
 *~
