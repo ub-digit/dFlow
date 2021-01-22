@@ -16,4 +16,4 @@ COPY ./config /usr/src/app/config
 
 RUN bundle install
 
-CMD ["sh", "-c", "rails server -b 0.0.0.0 -e $ENVIRONMENT"]
+CMD ["sh", "-c", "rm -f /usr/src/app/tmp/pids/server.pid && rails server -b 0.0.0.0 -e $ENVIRONMENT"]
