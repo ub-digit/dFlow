@@ -51,6 +51,7 @@ module.exports = function(environment) {
     hostName = 'localhost';
     baseURL = 'http://' + hostName + ':' + process.env.DFLOW_SERVICE_PORT;
     // ENV.APP.LOG_RESOLVER = true;
+
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
