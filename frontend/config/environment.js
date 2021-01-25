@@ -48,15 +48,8 @@ module.exports = function(environment) {
     };
   }
   else if (environment === 'staging') {
-    hostName = 'localhost';
+    hostName = hostName = process.env.DFLOW_SERVICE_HOSTNAME;
     baseURL = 'http://' + hostName + ':' + process.env.DFLOW_SERVICE_PORT;
-    // ENV.APP.LOG_RESOLVER = true;
-
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
-    ENV.APP.LOG_TRANSITIONS = true;
-    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    //ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
     ENV.contentSecurityPolicy = {
      'font-src': "'self' fonts.gstatic.com",
      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"

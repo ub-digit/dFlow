@@ -9,6 +9,7 @@ services:
         tty: true
         environment:
             - EMBER_ENVIRONMENT=${DFLOW_ENVIRONMENT}
+            - DFLOW_SERVICE_HOSTNAME=${DFLOW_SERVICE_HOSTNAME}
             - DFLOW_SERVICE_PORT=${DFLOW_BACKEND_PORT}
     backend:
         depends_on:
