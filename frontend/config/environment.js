@@ -48,17 +48,14 @@ module.exports = function(environment) {
     };
   }
   else if (environment === 'staging') {
-    hostName = hostName = process.env.DFLOW_SERVICE_HOSTNAME;
-    baseURL = 'http://' + hostName + ':' + process.env.DFLOW_SERVICE_PORT;
+    baseURL = process.env.DFLOW_SERVICE_HOSTNAME;
     ENV.contentSecurityPolicy = {
      'font-src': "'self' fonts.gstatic.com",
      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
     };
   }
   else if (environment === 'lab') {
-    hostName = process.env.DFLOW_SERVICE_HOSTNAME;
-    baseURL = 'http://' + hostName;
-
+    baseURL = process.env.DFLOW_SERVICE_HOSTNAME;
     ENV.contentSecurityPolicy = {
      'font-src': "'self' fonts.gstatic.com",
      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
