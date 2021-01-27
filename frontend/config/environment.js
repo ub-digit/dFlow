@@ -29,8 +29,7 @@ module.exports = function(environment) {
   let hostName = null;
 
   if (environment === 'development') {
-    hostName = 'localhost';
-    baseURL = 'http://' + hostName + ':' + process.env.DFLOW_SERVICE_PORT;
+    baseURL = 'http://localhost:8081';
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     ENV.APP.LOG_TRANSITIONS = true;
@@ -39,23 +38,21 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
   }
   else if (environment === 'production') {
-    hostName = process.env.DFLOW_SERVICE_HOSTNAME;
-    baseURL = 'http://' + hostName;
-
+    baseURL = process.env.SERVICE_HOSTNAME;
     ENV.contentSecurityPolicy = {
      'font-src': "'self' fonts.gstatic.com",
      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
     };
   }
   else if (environment === 'staging') {
-    baseURL = process.env.DFLOW_SERVICE_HOSTNAME;
+    baseURL = process.env.SERVICE_HOSTNAME;
     ENV.contentSecurityPolicy = {
      'font-src': "'self' fonts.gstatic.com",
      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
     };
   }
   else if (environment === 'lab') {
-    baseURL = process.env.DFLOW_SERVICE_HOSTNAME;
+    baseURL = process.env.SERVICE_HOSTNAME;
     ENV.contentSecurityPolicy = {
      'font-src': "'self' fonts.gstatic.com",
      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"

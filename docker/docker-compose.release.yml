@@ -6,8 +6,10 @@ services:
     ports:
       # Port differs in release image for ember
       # TODO: Change so nginx listens at 4200 instead to we don't need this?
-      - ${DFLOW_FRONTEND_PORT}:8080
+      - 4200:8080
   backend:
     image: docker.ub.gu.se/dflow-backend:${GIT_REVISION}
+    volumes:
+      - ./build/backend/config/config_full.yml:/usr/src/app/config/config_full.yml
   db:
     image: docker.ub.gu.se/dflow-postgres:${GIT_REVISION}

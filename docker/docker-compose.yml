@@ -8,27 +8,26 @@ services:
         # Enable sending signals (CTRL+C, CTRL+P + CTRL+Q) into the container
         tty: true
         environment:
-            - EMBER_ENVIRONMENT=${DFLOW_ENVIRONMENT}
-            - DFLOW_SERVICE_HOSTNAME=${DFLOW_SERVICE_HOSTNAME}
-            - DFLOW_SERVICE_PORT=${DFLOW_BACKEND_PORT}
+            - EMBER_ENVIRONMENT=${ENVIRONMENT}
+            - SERVICE_HOSTNAME=${SERVICE_HOSTNAME} # not used when ENVIRONMENT is development
     backend:
         depends_on:
             - db
         environment:
-            - ENVIRONMENT=${DFLOW_ENVIRONMENT}
-            - DFLOW_DB_HOST=${DFLOW_DB_HOST}
-            - DFLOW_DB_PORT=${DFLOW_DB_PORT}
-            - DFLOW_DB=${DFLOW_DB}
-            - DFLOW_DB_USER=${DFLOW_DB_USER}
-            - DFLOW_DB_PASSWORD=${DFLOW_DB_PASSWORD}
+            - ENVIRONMENT=${ENVIRONMENT}
+            - DB_HOST=${DB_HOST}
+            - DB_PORT=5432
+            - DB=${DB}
+            - DB_USER=${DB_USER}
+            - DB_PASSWORD=${DB_PASSWORD}
         ports:
-            - ${DFLOW_BACKEND_PORT}:${DFLOW_RAILS_PORT}
+        - ${BACKEND_SERVICE_PORT}:3000
     db:
         restart: always
         environment:
-            - POSTGRES_DB=${DFLOW_DB}
-            - POSTGRES_USER=${DFLOW_DB_USER}
-            - POSTGRES_PASSWORD=${DFLOW_DB_PASSWORD}
+            - POSTGRES_DB=${DB}
+            - POSTGRES_USER=${DB_USER}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
         volumes:
             - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
             - dbdata:/var/lib/postgresql/data
