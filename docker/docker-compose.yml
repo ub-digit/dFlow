@@ -9,7 +9,8 @@ services:
         tty: true
         environment:
             - EMBER_ENVIRONMENT=${ENVIRONMENT}
-            - SERVICE_HOSTNAME=${SERVICE_HOSTNAME} # not used when ENVIRONMENT is development
+            - SERVICE_HOSTNAME=${SERVICE_HOSTNAME}
+            - BACKEND_SERVICE_PORT=${BACKEND_SERVICE_PORT}
     backend:
         depends_on:
             - db

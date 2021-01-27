@@ -29,7 +29,7 @@ module.exports = function(environment) {
   let hostName = null;
 
   if (environment === 'development') {
-    baseURL = 'http://localhost:8081';
+    baseURL = 'http://' + process.env.SERVICE_HOSTNAME  + ':' + process.env.BACKEND_SERVICE_PORT;
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     ENV.APP.LOG_TRANSITIONS = true;
