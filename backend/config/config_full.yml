@@ -23,7 +23,7 @@ file_adapter:
 _dfile_base_url:
   system: true
   info: Ange adress till dFile
-dfile_base_url: http://<%= ENV["DFILE_HOSTNAME_PORT"] %>
+dfile_base_url: http://<%= ENV["DFILE_RAILS_SERVICE_HOSTNAME_AND_PORT"] %>
 _dfile_api_key:
   system: true
   info: Ange api-nyckel till dFile
@@ -31,7 +31,7 @@ dfile_api_key: <%= ENV["DFILE_API_KEY"] %>
 _dcat_base_url:
   system: true
   info: Ange adress till dCat
-dcat_base_url: <%= ENV["DCAT_BASEURL"] %>
+dcat_base_url: <%= ENV["DCAT_URL"] %>
 _dcat_api_key:
   system: true
   info: Ange api-nyckel till dCat
