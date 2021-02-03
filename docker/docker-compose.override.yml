@@ -21,4 +21,15 @@ services:
         image: postgres:9.4
         volumes:
             - ./build/postgres/postgres.conf:/etc/postgresql/postgresql.conf
+    dfile:
+        image: docker.ub.gu.se/rails:ruby-2.3.1
+        volumes:
+            - ../../dFile:/usr/src/app
+            - ../../dFile/filevault/config:/usr/src/app/filevault/config
+            - ../../dFile/filevault/packaging:/usr/src/app/filevault/packaging
+            - ../../dFile/filevault/processing:/usr/src/app/filevault/processing
+            - ../../dFile/filevault/store:/usr/src/app/filevault/store
+            - ../../dFile/filevault/trash:/usr/src/app/filevault/trash
 
+
+        command: ["sh", "-c", "bundle install && rm -f /usr/src/app/tmp/pids/server.pid && rails server -b 0.0.0.0"]
