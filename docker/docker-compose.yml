@@ -9,8 +9,8 @@ services:
         tty: true
         environment:
             - EMBER_ENVIRONMENT=${ENVIRONMENT}
-            - SERVICE_HOSTNAME=${SERVICE_HOSTNAME}
-            - BACKEND_SERVICE_PORT=${BACKEND_SERVICE_PORT}
+            - SERVICE_HOSTNAME=${DFLOW_RAILS_SERVICE_HOSTNAME}
+            - BACKEND_SERVICE_PORT=${DFLOW_RAILS_SERVICE_PORT}
     backend:
         depends_on:
             - db
@@ -21,8 +21,11 @@ services:
             - DB=${DB}
             - DB_USER=${DB_USER}
             - DB_PASSWORD=${DB_PASSWORD}
+            - SECRET_KEY_BASE=${DFLOW_SECRET_KEY_BASE}
+            - DFILE_RAILS_SERVICE_HOSTNAME_AND_PORT=${DFILE_RAILS_SERVICE_HOSTNAME_AND_PORT}
+            - DFILE_API_KEY=${DFILE_API_KEY}
         ports:
-        - ${BACKEND_SERVICE_PORT}:3000
+        - ${DFLOW_RAILS_SERVICE_PORT}:3000
     db:
         restart: always
         environment:
@@ -32,6 +35,22 @@ services:
         volumes:
             - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
             - dbdata:/var/lib/postgresql/data
+    dfile:
+        depends_on:
+            - redis
+        environment:
+            - ENVIRONMENT=${ENVIRONMENT}
+            - SECRET_KEY_BASE=${DFILE_SECRET_KEY_BASE}
+            - REDIS_HOST=${REDIS_HOST}
+            - REDIS_PORT=${REDIS_PORT}
+        ports:
+            - ${DFILE_RAILS_SERVICE_PORT}:3000
+    redis:
+        image: redis:6.0.10
+        volumes:
+            - redis:/data
+        command: redis-server
 
 volumes:
+    redis:
     dbdata:
