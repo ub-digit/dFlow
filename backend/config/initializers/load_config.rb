@@ -1,6 +1,8 @@
+require "erb"
+require "yaml"
 # Define config location
-APP_CONFIG_FILE_LOCATION = "#{Rails.root}/config/config_full.yml"
-APP_CONFIG_TEST_FILE_LOCATION = "#{Rails.root}/config/config_full_test.yml"
+APP_CONFIG_FILE_LOCATION = YAML.load(ERB.new(File.read("#{Rails.root}/config/config_full.yml")).result)
+APP_CONFIG_TEST_FILE_LOCATION = YAML.load(ERB.new(File.read("#{Rails.root}/config/config_full_test.yml")).result)
 SYSTEM_DATA_FILE_LOCATION = "#{Rails.root}/config/system_data.yml"
 LAST_COMMIT_FILE_LOCATION = "#{Rails.root}/last_commit.txt"
 
@@ -8,9 +10,9 @@ main_config = YAML.load_file(SYSTEM_DATA_FILE_LOCATION)
 SYSTEM_DATA = main_config || {}
 
 if Rails.env == 'test'
-  main_config = YAML.load_file(APP_CONFIG_TEST_FILE_LOCATION)
+  main_config = APP_CONFIG_TEST_FILE_LOCATION
 else
-  main_config = YAML.load_file(APP_CONFIG_FILE_LOCATION)
+  main_config = APP_CONFIG_FILE_LOCATION
 end
 
 # Load commit file information, created with 'git log -1 > last_commit.txt'
