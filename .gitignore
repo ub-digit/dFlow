@@ -30,7 +30,7 @@ backend/config/deploy.yml
 backend/config/passwd
 
 docker/build/backend/config/config_full.yml
-docker/.env
+docker/.env_local
 
 last_commit.txt
 *~
