@@ -35,22 +35,9 @@ services:
         volumes:
             - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
             - dbdata:/var/lib/postgresql/data
-    dfile:
-        depends_on:
-            - redis
-        environment:
-            - ENVIRONMENT=${ENVIRONMENT}
-            - SECRET_KEY_BASE=${DFILE_SECRET_KEY_BASE}
-            - REDIS_HOST=${REDIS_HOST}
-            - REDIS_PORT=${REDIS_PORT}
-        ports:
-            - ${DFILE_RAILS_SERVICE_PORT}:3000
-    redis:
-        image: redis:6.0.10
-        volumes:
-            - redis:/data
-        command: redis-server
 
 volumes:
-    redis:
     dbdata:
+networks:
+    default:
+        name: d-suit-net
