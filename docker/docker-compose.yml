@@ -27,6 +27,7 @@ services:
             - CAS_URL=${CAS_URL}
             - DCAT_URL=${DCAT_URL}
             - DCAT_API_KEY=${DCAT_API_KEY}
+            - GUPEA_URL=${GUPEA_URL}
         ports:
         - ${DFLOW_RAILS_SERVICE_PORT}:3000
     db:

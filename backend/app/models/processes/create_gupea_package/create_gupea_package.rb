@@ -124,12 +124,18 @@ class CreateGupeaPackage
 
   # Sends signal to GUPEA server to import package
   def self.import_package(job:)
-    response = HTTParty.get("http://gupea-server.ub.gu.se:81/dflow_import/#{job.id}")
-
-    if !response || response["error"] || !response["url"]
-      raise StandardError, "Error from service: #{response['error']} #{response['extra_info']}"
+    if ENV["GUPEA_URL"].present?
+      response = HTTParty.get("#{ENV["GUPEA_URL"]}/#{job.id}")
+      if !response || response["error"] || !response["url"]
+        raise StandardError, "Error from service: #{response['error']} #{response['extra_info']}"
+      else
+        publicationlog = PublicationLog.new(job: job, publication_type: 'GUPEA', comment: response['url'])
+        if !publicationlog.save
+          raise StandardError, "Couldn't save publicationlog due to errors: #{publicationlog.errors}"
+        end
+      end
     else
-      publicationlog = PublicationLog.new(job: job, publication_type: 'GUPEA', comment: response['url'])
+      publicationlog = PublicationLog.new(job: job, publication_type: 'GUPEA', comment: "No GUPEA_URL")
       if !publicationlog.save
         raise StandardError, "Couldn't save publicationlog due to errors: #{publicationlog.errors}"
       end
