@@ -34,25 +34,32 @@ class CreateLibrisItem
         "remark_holding": remark_holding
       }
     }
-    response = HTTParty.post("#{dcat_base_url}/?api_key=#{dcat_api_key}", :query => query)
-
-    if !response
-      raise StandardError, "Unknown error when trying to connect to dCat service}"
-    elsif response.code != 201 && !response["error"]
-      raise StandardError, "Error from dCat service, code: #{response.code}"
-    elsif response.code != 201 && response["error"]
-      raise StandardError, "Error from dCat service, code: #{response.code}, message: #{response['error']['msg']}"
+    if dcat_base_url.present?
+      response = HTTParty.post("#{dcat_base_url}/?api_key=#{dcat_api_key}", :query => query)
+      if !response
+        raise StandardError, "Unknown error when trying to connect to dCat service}"
+      elsif response.code != 201 && !response["error"]
+        raise StandardError, "Error from dCat service, code: #{response.code}"
+      elsif response.code != 201 && response["error"]
+        raise StandardError, "Error from dCat service, code: #{response.code}, message: #{response['error']['msg']}"
+      else
+        publicationlog = PublicationLog.new(job: job, publication_type: 'DCAT_LIBRIS_ID', comment: response['electronic_item_id'])
+        if !publicationlog.save
+          raise StandardError, "Couldn't save publicationlog due to errors: #{publicationlog.errors}"
+        end
+        publicationlog = PublicationLog.new(job: job, publication_type: 'DCAT_HOLDING_ID', comment: response['holding_id'])
+        if !publicationlog.save
+          raise StandardError, "Couldn't save publicationlog due to errors: #{publicationlog.errors}"
+        end
+      end
+      return true
     else
-      publicationlog = PublicationLog.new(job: job, publication_type: 'DCAT_LIBRIS_ID', comment: response['electronic_item_id'])
+      publicationlog = PublicationLog.new(job: job, publication_type: 'DCAT_LIBRIS_ID', comment: "No dcat-url specified")
       if !publicationlog.save
         raise StandardError, "Couldn't save publicationlog due to errors: #{publicationlog.errors}"
       end
-      publicationlog = PublicationLog.new(job: job, publication_type: 'DCAT_HOLDING_ID', comment: response['holding_id'])
-      if !publicationlog.save
-        raise StandardError, "Couldn't save publicationlog due to errors: #{publicationlog.errors}"
-      end
+      return true
     end
-    return true
   end
 
 end
