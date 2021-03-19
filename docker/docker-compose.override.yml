@@ -13,7 +13,7 @@ services:
         volumes:
             - ../frontend:/home/node/app
     backend:
-        image: docker.ub.gu.se/rails:ruby-2.3.1
+        image: docker.ub.gu.se/rails:ruby-2.3.1-002
         volumes:
             - ../backend:/usr/src/app
         command: ["sh", "-c", "bundle install && rm -f /usr/src/app/tmp/pids/server.pid && rails server -b 0.0.0.0"]
