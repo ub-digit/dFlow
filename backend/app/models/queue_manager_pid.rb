@@ -110,7 +110,7 @@ class QueueManagerPid < ActiveRecord::Base
     end
 
     # If process is a ruby script, consider it to be running
-    if running_process.strip.start_with? "ruby"
+    if running_process.present?
       return true
     end
     return false
