@@ -65,7 +65,7 @@ redis_db:
   _host:
     info: 'Ange hostnamn för redis databasen, default: localhost'
     system: true
-  host: <%= ENV["REDIS_HOST"] %>:<%= ENV["REDIS_PORT"] %>
+  host: <%= ENV["REDIS_HOST"] %>
 _package_name:
   info: 'Ange vilket format som paket ska lagras som, ex: GUB%07d för GUB0000001'
 package_name: GUB%07d
