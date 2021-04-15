@@ -427,3 +427,6 @@ text-align: center;
   user-select: none;
 }
 
+.center {
+  text-align: center;
+}
