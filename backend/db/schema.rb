@@ -45,9 +45,6 @@ ActiveRecord::Schema.define(version: 20200326100805) do
     t.text     "comment"
   end
 
-  add_index "flow_steps", ["job_id"], name: "idx_flow_steps_job_id", using: :btree
-  add_index "flow_steps", ["step"], name: "idx_flow_steps_step", using: :btree
-
   create_table "flows", force: :cascade do |t|
     t.string   "name"
     t.text     "description"

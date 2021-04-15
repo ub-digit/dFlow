@@ -15,7 +15,7 @@ export default Ember.Component.extend(InViewportMixin, {
     this.store.find('thumbnail', '?source_dir=' + this.get('imagesFolderPath') + '&source=' + this.get('imagesSource')+ '&size=200&image=' + this.get('image.num') + filetypeString + '&token=' + token).then(function(response){
       that.set('small', response.thumbnail);
     });
-    } 
+    }
     this._super();
   },
 
@@ -112,10 +112,10 @@ export default Ember.Component.extend(InViewportMixin, {
             pageNumbersToSelect.push(padded);
           }
         }
-        // create array with pages to select 
+        // create array with pages to select
 
 
-        // if pageNumberToUse is undefined find the closest to the clicked page 
+        // if pageNumberToUse is undefined find the closest to the clicked page
         if (pageNumbersToSelect.length) {
             this.get("images").forEach((item, index) => {
               if (pageNumbersToSelect.includes(item.num)) {
@@ -126,7 +126,7 @@ export default Ember.Component.extend(InViewportMixin, {
 
 
 
-        // Find closest already selected and select from that to the clicked 
+        // Find closest already selected and select from that to the clicked
       }
       else {
         if ( (e.ctrlKey === false) && (this.get("image.num") !== this.get("latestSelected")) ) {
@@ -137,7 +137,7 @@ export default Ember.Component.extend(InViewportMixin, {
         this.set('image.selected', (this.get('image.selected') ? false : true));
         this.set('latestSelected', this.get("image.num"));
       }
-      
+
     },
   }
 });

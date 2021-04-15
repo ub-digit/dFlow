@@ -6,20 +6,56 @@ export default Ember.Component.extend({
   select_all: true,
   select_odd: true,
   select_even: true,
-  latestSelected: null, 
+  latestSelected: null,
+  currentPage: 1,
+  per_page_items: 100,
+  pages_in_number_arr: [],
 
+  metadataImages: Ember.computed('packageMetadata.images.[]','currentPage', function() {
+    this.deselectAllImages();
+    return this.paginator(this.get('packageMetadata.images'),this.get('currentPage'),this.get('per_page_items'));
+  }),
   hasSelected: Ember.computed('packageMetadata.images.@each.selected', function() {
-    if (this.get("packageMetadata.images")) { 
+    if (this.get("packageMetadata.images")) {
     return this.get("packageMetadata.images").filter(image => {
         return image.selected;
       }).length;
     }
   }),
+
+  paginator: function(items, current_page, per_page_items) {
+    let page = current_page || 1,
+    per_page = per_page_items || 10,
+    offset = (page - 1) * per_page,
+    paginatedItems = items.slice(offset).slice(0, per_page_items),
+    total_pages = Math.ceil(items.length / per_page);
+    this.set("pages_in_number_arr", this.range(1,total_pages));
+    return {
+      page: page,
+      per_page: per_page,
+      pre_page: page - 1 ? page - 1 : null,
+      next_page: (total_pages > page) ? page + 1 : null,
+      total: items.length,
+      total_pages: total_pages,
+      data: paginatedItems
+    };
+  },
+
+  range: function(start, end) {
+    return Array(end - start + 1).fill().map((_, idx) => start + idx)
+  },
+
   setup: function() {
     $('[data-toggle="tooltip"]').tooltip({
       trigger : 'hover'
   });
   }.on('didRender'),
+
+  deselectAllImages() {
+    this.get('packageMetadata.images').forEach((image, index) => {
+      Ember.set(image, 'selected', false);
+    })
+  },
 
   actions: {
   /*  generatePageTypes() {
@@ -63,6 +99,17 @@ export default Ember.Component.extend({
       })
     },*/
 
+    specificPage(page) {
+      this.set('currentPage', page);
+    },
+    previousPage() {
+      var newPage = this.get("currentPage")-1;
+      this.set('currentPage', newPage);
+    },
+    nextPage() {
+      var newPage = this.get("currentPage")+1;
+      this.set('currentPage', newPage);
+    },
     saveMetaData(flowStep) {
       var r = confirm("Är du säker på att du vill spara metadatan?");
       if (r == true) {
@@ -70,7 +117,6 @@ export default Ember.Component.extend({
         $('#myModal').modal('hide');
       }
     },
-
     applyMetadataSequence() {
       this.get('packageMetadata.images').filter(function(item) {return item.selected}).forEach((image, index) => {
         var even = 'Undefined';
@@ -113,15 +159,13 @@ export default Ember.Component.extend({
     },
     selectAll() {
       this.get('packageMetadata.images').forEach((image, index) => {
-          Ember.set(image, 'selected', true);        
+          Ember.set(image, 'selected', true);
       })
       this.set("latestSelected", null);
     },
 
     deselectAll() {
-      this.get('packageMetadata.images').forEach((image, index) => {
-        Ember.set(image, 'selected', false);        
-      })
+      this.deselectAllImages();
     },
 
 

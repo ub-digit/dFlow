@@ -67,10 +67,20 @@
         </div>
 
         <div id="pages" class="row">
-          {{#each packageMetadata.images as |image|}}
+          {{#each metadataImages.data as |image|}}
             {{dscribe-wrapper latestSelected=latestSelected images=packageMetadata.images image=image imagesFolderPath=flowStep.parsed_params.images_folder_path imagesSource=flowStep.parsed_params.source filetype=flowStep.parsed_params.filetype}}
           {{/each}}
         </div>
+
+        <nav class="center" id="pagination" aria-label="pagination nav">
+          <ul class="pagination">
+            <li class="page-item {{is-previous-disabled currentPage}}"><a href="#" {{action 'previousPage'}}>Föregående</a></li>
+            {{#each pages_in_number_arr as |page|}}
+              <li class="{{is-current-page page currentPage}}"><a class="page-link" href="#" {{action 'specificPage' page}}>{{page}}</a></li>
+            {{/each}}
+            <li class="page-item {{is-next-disabled currentPage metadataImages.total_pages}}"><a href="#" {{action 'nextPage'}}>Nästa</a></li>
+          </ul>
+        </nav>
 
       </div>
       <div class="modal-footer">
