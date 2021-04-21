@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   select_even: true,
   latestSelected: null,
   currentPage: 1,
-  per_page_items: 100,
+  per_page_items: 500,
   pages_in_number_arr: [],
 
   metadataImages: Ember.computed('packageMetadata.images.[]','currentPage', function() {
