@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import InViewportMixin from 'd-flow-ember/mixins/in-view-port';
+import ENV from 'd-flow-ember/config/environment';
 
 export default Ember.Component.extend(InViewportMixin, {
   session: Ember.inject.service(),
@@ -36,7 +37,7 @@ export default Ember.Component.extend(InViewportMixin, {
   fileUrl: Ember.computed('imagesFolderPath', 'imagesSource', 'image.num', 'filetype', function() {
     var token =  this.get('session.data.authenticated.token');
     var file_path = this.get('imagesFolderPath')+"/"+this.get('imagesSource')+"/"+this.get('image.num')+'.'+this.get('filetype');
-    return "/assets/file?file_path="+file_path+'&token='+token;
+    return ENV.APP.serviceURL + "/assets/file?file_path="+file_path+'&token='+token;
   }),
 
   mouseEnter: function(){
