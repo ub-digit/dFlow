@@ -80,7 +80,7 @@ _pdf_settings:
 pdf_settings:
   _operators:
     info: Ange hur operatörsblocket ska skrivas ut i PDFen
-  operators: "[ ] Annalena     [ ] Grim     [ ] Maria"
+  operators: "[ ] Annalena     [ ] Grim     [ ] Maria     [ ] Ina"
   _equipments:
     info: Ange hur utrustningsblocket ska skrivas ut i PDFen
   equipments: "[ ] Robot    [ ] Zeutschel    [ ] Canon            [ ] Colortrac     [
