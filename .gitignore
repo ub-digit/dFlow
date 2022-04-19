@@ -24,7 +24,7 @@ docker/docker-entrypoint-initdb.d/*.sql
 /backend/log/*.log
 /tmp
 backend/log/*.log
-
+backend/tmp
 
 backend/config/deploy.yml
 backend/config/passwd
