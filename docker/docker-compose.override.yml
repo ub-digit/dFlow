@@ -21,3 +21,7 @@ services:
         image: postgres:9.4
         volumes:
             - ./build/postgres/postgres.conf:/etc/postgresql/postgresql.conf
+            - dbdata:/var/lib/postgresql/data
+volumes:
+  dbdata:
+    name: dflow
