@@ -125,7 +125,7 @@ class CreateGupeaPackage
   # Sends signal to GUPEA server to import package
   def self.import_package(job:)
     if ENV["GUPEA_URL"].present?
-      response = HTTParty.get("#{ENV["GUPEA_URL"]}/#{job.id}")
+      response = HTTParty.get("#{ENV["GUPEA_URL"]}/#{job.id}", timeout: 600)
       if !response || response["error"] || !response["url"]
         raise StandardError, "Error from service: #{response['error']} #{response['extra_info']}"
       else
