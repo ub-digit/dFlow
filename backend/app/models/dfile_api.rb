@@ -264,7 +264,7 @@ class DfileApi
 
   # Copies a file
   def self.copy_file(source_file:, dest_file:)
-    response = HTTParty.get("#{host}/copy_file", timeout: 600, query: {
+    response = HTTParty.get("#{host}/copy_file", timeout: 900, query: {
       source_file: source_file,
       dest_file: dest_file,
       api_key: api_key
