@@ -28,7 +28,7 @@ class CreateLibrisItem
         "place": place,
         "agency": agency,
         "bibliographic_code": bibliographic_code,
-        "additional_bibliographic_code": additional_bibliographic_code,
+        "additional_bibliographic_code": additional_bibliographic_code.eql?('none') ? nil : additional_bibliographic_code,
         "create_holding": create_holding,
         "publicnote": publicnote,
         "remark": remark,
