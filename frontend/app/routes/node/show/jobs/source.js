@@ -3,6 +3,8 @@
  */
 
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+
 // console.log(model.roles);
 // export default Ember.Route.extend({
 //   model: function(params) {
@@ -10,7 +12,7 @@ import Ember from 'ember';
 //   }
 // });
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
     var node = this.modelFor('node.show').treenode;
     return {treenode_id: node.id}; // Beginning with this data
