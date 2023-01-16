@@ -5,6 +5,7 @@ import ENV from 'd-flow-ember/config/environment';
 export default Ember.Component.extend(InViewportMixin, {
   session: Ember.inject.service(),
   store: Ember.inject.service(),
+
   init() {
     var that = this;
     var token =  this.get('session.data.authenticated.token');
@@ -66,20 +67,22 @@ export default Ember.Component.extend(InViewportMixin, {
   },
 
   actions: {
+
     catchPhysical: function(event) {
-      if (event.path[0].nodeName === "I") {
-        this.togglePhysical(event.path[1].id);
+      console.log(event.composedPath()[0].nodeName);
+      if (event.composedPath()[0].nodeName === "I") {
+        this.togglePhysical(event.composedPath()[1].id);
       }
-      else if (event.path[0].nodeName === 'BUTTON') {
-        this.togglePhysical(event.path[0].id);
+      else if (event.composedPath()[0].nodeName === 'BUTTON') {
+        this.togglePhysical(event.composedPath()[0].id);
       }
     },
     catchLogical: function(event) {
-      if (event.path[0].nodeName === "I") {
-        this.toggleLogical(event.path[1].id);
+      if (event.composedPath()[0].nodeName === "I") {
+        this.toggleLogical(event.composedPath()[1].id);
       }
-      else if (event.path[0].nodeName === 'BUTTON') {
-        this.toggleLogical(event.path[0].id);
+      else if (event.composedPath()[0].nodeName === 'BUTTON') {
+        this.toggleLogical(event.composedPath()[0].id);
       }
     },
     setLogical: function(page_content){
