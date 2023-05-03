@@ -8,12 +8,12 @@ describe Api::SourcesController do
     @libris_source = Source.find_by_class_name("Libris")
 
     # Request för att hämta en post som inte finns (id 0), dvs ett xsearch-svar utan record i.
-    stub_request(:get, "http://libris.kb.se/xsearch?format=marcxml&format_level=full&holdings=true&query=ONR:0").
+    stub_request(:get, "https://libris.kb.se/xsearch?format=marcxml&format_level=full&holdings=true&query=ONR:0").
          with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
          to_return(:status => 200, :body => File.new("#{Rails.root}/spec/support/sources/libris-invalid-entry-onr0.xml"), :headers => {})
 
     # Request för att hämta en post som finns (id: 12345), dvs xsearch-svar somm innehåller ett record.
-    stub_request(:get, "http://libris.kb.se/xsearch?format=marcxml&format_level=full&holdings=true&query=ONR:12345").
+    stub_request(:get, "https://libris.kb.se/xsearch?format=marcxml&format_level=full&holdings=true&query=ONR:12345").
          with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
          to_return(:status => 200, :body => File.new("#{Rails.root}/spec/support/sources/libris-valid-entry-onr12345.xml"), :headers => {"Content-Type" => "text/xml;charset=UTF-8"})
   end
