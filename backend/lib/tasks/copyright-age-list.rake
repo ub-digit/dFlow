@@ -33,10 +33,10 @@ namespace :copyright_age_list do
     filename += '.csv'
 
     CSV.open(filename, "wb") do |csv|
-      csv << ['Job ID', 'Title', 'Job name', 'Author', 'Birth year', 'Death year']
+      csv << ['Job ID', 'LibrisID', 'Libris Link', 'Title', 'Job name', 'Author', 'Birth year', 'Death year']
       job_list.sort_by {|j| j['job_id'] }.each do |job|
         job['authors'].each do |author|
-          csv << [job['job_id'], job['title'], job['job_name'], author['name'], author['birthyear'], author['deathyear']]
+          csv << [job['job_id'], job['libris_id'], job['libris_link'], job['title'], job['job_name'], author['name'], author['birthyear'], author['deathyear']]
         end
       end
     end
@@ -50,6 +50,8 @@ def parse_job(job)
   authors = extract_authors(doc)
   {
     'job_id' => job.id,
+    'libris_id' => job.catalog_id,
+    'libris_link' => "http://libris.kb.se/bib/#{job.catalog_id}",
     'title' => title,
     'job_name' => job.name,
     'authors' => authors
