@@ -131,7 +131,7 @@ export default {
     saving: "Sparar",
     breadcrumb: "Placering",
     copyright_values: {
-      'unselected': "Välj",
+      'unselected': "-- Välj --",
       'true': "Får EJ publiceras",
       'false': "Får publiceras"
     },

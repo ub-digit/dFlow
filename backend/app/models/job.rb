@@ -28,6 +28,8 @@ class Job < ActiveRecord::Base
   validates :copyright, :inclusion => {:in => [true, false]}
   validate :xml_validity
   validate :validate_flow
+  validate :validate_flow_parameters
+
   validates_associated :job_activities
 
   # AFTER VALIDATION
@@ -99,6 +101,18 @@ class Job < ActiveRecord::Base
     if flow.present? && !flow.valid?
       flow.errors.full_messages.each do |msg|
         errors.add(:flow, msg)
+      end
+    end
+  end
+
+  def validate_flow_parameters
+    # for each parameter in flow.parameters_array, that has value "prompt": true and "type": "radio", there should be a corresponding key with a value not nil in flow_parameters_hash
+    # if not, add an error
+    flow.parameters_array.each do |param|
+      if param['prompt'] && param['type'] == "radio"
+        if flow_parameters_hash[param['name']].nil?
+          errors.add(:flow_parameters, "Parameter #{param['name']} is required")
+        end
       end
     end
   end
@@ -464,6 +478,12 @@ class Job < ActiveRecord::Base
 
   def init_flow_parameters
     if self.flow.present?
+      # trim all string values in flow_parameters_hash
+      flow_parameters_hash.each do |key, value|
+        if value.is_a?(String)
+          flow_parameters_hash[key] = value.strip
+        end
+      end
       self.flow_parameters = flow.parameters_hash.merge(flow_parameters_hash).to_json
     end
   end
