@@ -478,6 +478,12 @@ class Job < ActiveRecord::Base
 
   def init_flow_parameters
     if self.flow.present?
+      # trim all string values in flow_parameters_hash
+      flow_parameters_hash.each do |key, value|
+        if value.is_a?(String)
+          flow_parameters_hash[key] = value.strip
+        end
+      end
       self.flow_parameters = flow.parameters_hash.merge(flow_parameters_hash).to_json
     end
   end
