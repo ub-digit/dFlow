@@ -7,9 +7,9 @@
       <li>{{#link-to 'node.show' 'root'}}{{t 'menu.nodes'}}{{/link-to}}</li>
       <li>{{#link-to 'jobs.index' (query-params quarantined="" query="")}}{{t 'menu.jobs'}}{{/link-to}}</li>
       {{#if session.isAuthenticated}}
-      <li>{{#link-to 'jobs.index' (query-params quarantined="true" query="")}}{{t 'menu.quarantine'}}{{/link-to}}</li>
+      <li class="{{if anyJobInQuarantine 'bg-danger'}}">{{#link-to 'jobs.index' (query-params quarantined="true" query="")}}{{t 'menu.quarantine'}}{{formatNoOfJobsInQuarantine}} {{/link-to}}</li>
       <li>{{#link-to 'jobs.queue'}}Processkö{{/link-to}}</li>
-      <li>{{#link-to 'queuemanager'}}Köhanterare{{/link-to}}</li>
+      <li class="{{if queueManagerStopped 'bg-danger'}}">{{#link-to 'queuemanager'}}Köhanterare{{/link-to}}</li>
       {{/if}}
     </ul>
     {{#if session.isAuthenticated}}

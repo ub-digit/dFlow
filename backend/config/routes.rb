@@ -65,5 +65,7 @@ Rails.application.routes.draw do
     get 'statistics/download/:id', to: 'statistics#download'
 
     get 'files', to: 'files#index'
+
+    get 'notifications', to: 'notifications#index'
   end
 end

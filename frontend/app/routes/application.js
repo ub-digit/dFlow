@@ -33,6 +33,23 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       that.checkLoggedInState();
     },1000*60*10); // Check every 10 minutes
   },
+
+  checkNotifications: function(controller) {
+    var that = this;
+    // Check if user has permission to see notifications
+    if (that.get('session.data.authenticated.can_manage_jobs')) {
+      that.store.find('notification').then(function(notifications ) {
+        controller.set('queueManagerStopped', notifications.queue_manager_stopped);
+        controller.set('jobsInQuarantine', notifications.jobs_in_quarantine);
+      });
+    }
+    if (controller.get('updateNotifications')) {
+      Ember.run.later(function() {
+        that.checkNotifications(controller);
+      }, 1000 * 10); // Check every 10 seconds
+    }
+  },
+
   beforeModel: function(transition) {
     var that = this;
     var session = this.get('session');
@@ -100,6 +117,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     controller.set('version_info', model.version_info);
     this.checkLoggedInState();
+
+    controller.set('updateNotifications', true);
+    this.checkNotifications(controller);
   },
   actions: {
     sessionAuthenticationFailed: function(error) {
