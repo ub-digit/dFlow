@@ -15,7 +15,8 @@ export default Ember.Object.extend({
     queue: {path: 'api/queued_jobs', singular: 'flow_step', plural: 'flow_steps'},
     script: {path: 'api/script', singular: 'script', plural: 'scripts'},
     statistics: {path: 'api/statistics'},
-    queue_manager: {path: 'api/queue_manager', singular: 'queue_manager', plural: 'queue_managers'}
+    queue_manager: {path: 'api/queue_manager', singular: 'queue_manager', plural: 'queue_managers'},
+    notification: {path: 'api/notifications'},
   },
   sessionHeaders: function() {
     var session = this.get('session');
