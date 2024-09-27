@@ -21,7 +21,10 @@ class Treenode < ActiveRecord::Base
   # If node has been moved, update all jobs treenode_ids
   def handle_node_move
     if self.parent_id_changed?
-      Job.all.each do |job|
+      # Get the previus value of parent_id
+      old_parent_id = parent_id_was
+      # Loop through all Jobs that have this node in their parent_ids list
+      Job.where("? = ANY (parent_ids)", old_parent_id).each do |job|
         job.set_treenode_ids
         job.save(validate: false)
       end
