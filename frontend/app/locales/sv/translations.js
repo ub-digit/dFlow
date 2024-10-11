@@ -45,7 +45,8 @@ export default {
     password: "Lösenord",
     username: "Användarnamn",
     login: "Logga in",
-    casLogin: "Logga in med CAS"
+    casLogin: "Logga in med CAS",
+    loginError: "Fel användarnamn eller lösenord."
   },
   nodes: {
     id: "ID",
