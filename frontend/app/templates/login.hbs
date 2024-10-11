@@ -5,9 +5,9 @@
         <h3 class="col-xs-12">{{t 'login.login'}}</h3>
       </div>
       <div class="row info-box-body">
-        {{#if error}}
+        {{#if errorMessage}}
           <div class="alert alert-danger col-xs-12">
-            {{error.msg}}
+            {{errorMessage}}
           </div>
         {{/if}}
         <div class="form-group">
