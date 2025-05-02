@@ -39,7 +39,7 @@ class Libris < Source
 
   def self.fetch_from_libris(url)
     job_data = {}
-    open(url) do |conn|
+    open(url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |conn|
       librisdata = conn.read
       job_data = data_from_record(librisdata)
       job_data[:xml] = librisdata if not job_data.blank?
